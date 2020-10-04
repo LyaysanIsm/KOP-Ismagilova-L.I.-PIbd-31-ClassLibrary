@@ -1,13 +1,13 @@
-﻿namespace WindowsFormsApplication
+﻿namespace ClassLibraryData
 {
-    partial class FormApplication
+    partial class ControlTextFieldData
     {
-        /// <summary>
+        /// <summary> 
         /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Освободить все используемые ресурсы.
         /// </summary>
         /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Код, автоматически созданный конструктором компонентов
 
         /// <summary>
         /// Требуемый метод для поддержки конструктора — не изменяйте 
@@ -28,28 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.controlTextBox = new ClassLibraryData.ControlTextFieldData();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // controlTextBox
+            // textBox
             // 
-            this.controlTextBox.Location = new System.Drawing.Point(231, 12);
-            this.controlTextBox.Name = "controlTextBox";
-            this.controlTextBox.Size = new System.Drawing.Size(230, 119);
-            this.controlTextBox.TabIndex = 3;
+            this.textBox.Location = new System.Drawing.Point(3, 3);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(198, 20);
+            this.textBox.TabIndex = 0;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBox.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // FormApplication
+            // ControlTextFieldData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 195);
-            this.Controls.Add(this.controlTextBox);
-            this.Name = "FormApplication";
-            this.Text = "FormApplication";
+            this.Controls.Add(this.textBox);
+            this.Name = "ControlTextFieldData";
+            this.Size = new System.Drawing.Size(204, 27);
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
-        #endregion        
-        private ClassLibraryData.ControlTextFieldData controlTextBox;
+        #endregion
+
+        private System.Windows.Forms.TextBox textBox;
     }
 }

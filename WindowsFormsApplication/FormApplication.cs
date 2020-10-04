@@ -15,6 +15,9 @@ namespace WindowsFormsApplication
         public FormApplication()
         {
             InitializeComponent();
+            controlTextBox.ErrorColor = Color.LightBlue;
+            //controlTextBox.Regexp = @"(0[1 - 9] |[12][0 - 9] | 3[01])[- /.]";
+            controlTextBox.Regexp = @"\d{3}";
         }
     }
 }
