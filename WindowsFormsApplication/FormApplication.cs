@@ -16,9 +16,20 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
             controlTextBox.ErrorColor = Color.LightBlue;
-            //controlTextBox.Regexp = @"(0[1 - 9] |[12][0 - 9] | 3[01])[- /.]";
-            controlTextBox.Regexp = @"\d{3}";
+            controlTextBox.Regexp = @"\d{2}.";
+            controlTextBox.Hint = @"10.";
             controlListBox.LoadList(typeof(PropertiesClass));
+            controlComboBox.LoadObject(typeof(TestEnum));
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            controlComboBox.SelectedIndex = 0;
+        }
+
+        private void controlComboBox_ListBoxSelectedElementChange(object sender, EventArgs e)
+        {
+            MessageBox.Show(controlComboBox.SelectedIndex.ToString() + " " + controlComboBox.SelectedText);
         }
     }
 }

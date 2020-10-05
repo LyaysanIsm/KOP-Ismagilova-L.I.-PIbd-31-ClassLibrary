@@ -27,6 +27,7 @@ namespace ClassLibraryData
         /// Регулярное выражение в вводе
         /// </summary>
         private string regexp = @"(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]$";
+
         /// <summary>
         /// Пользователь вводит в строке
         /// </summary>
@@ -53,6 +54,12 @@ namespace ClassLibraryData
         {
             get { return regexp; }
             set { regexp = value.Length == 0 ? regexp : value; }
+        }
+        
+        public string Hint
+        {
+            get { return hint; }
+            set { hint = value.Length == 0 ? hint : value; }
         }
 
         public ControlTextFieldData()

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryListBox", "ClassLibraryListBox\ClassLibraryListBox.csproj", "{D3E6F66D-A215-41E6-8417-C3AA74359439}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryComboBox", "ClassLibraryComboBox\ClassLibraryComboBox.csproj", "{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
