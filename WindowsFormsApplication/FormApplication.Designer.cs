@@ -68,6 +68,7 @@
             this.controlComboBox.SelectedIndex = 0;
             this.controlComboBox.Size = new System.Drawing.Size(162, 67);
             this.controlComboBox.TabIndex = 0;
+            this.controlComboBox.ComboBoxSelectedElementChange += new System.EventHandler(this.controlComboBox_ListBoxSelectedElementChange);
             // 
             // FormApplication
             // 

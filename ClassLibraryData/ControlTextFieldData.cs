@@ -26,7 +26,7 @@ namespace ClassLibraryData
         /// <summary>
         /// Регулярное выражение в вводе
         /// </summary>
-        private string regexp = @"(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]$";
+        private string regexp = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]";
 
         /// <summary>
         /// Пользователь вводит в строке
@@ -55,7 +55,11 @@ namespace ClassLibraryData
             get { return regexp; }
             set { regexp = value.Length == 0 ? regexp : value; }
         }
-        
+
+        /// <summary>
+        /// Подсказка для пользователя
+        /// </summary>
+        [Category("Спецификация"), Description("Установка шаблона для поля ввода")]
         public string Hint
         {
             get { return hint; }

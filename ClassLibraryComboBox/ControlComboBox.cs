@@ -28,7 +28,7 @@ namespace ClassLibraryComboBox
         [Category("Спецификация"), Description("Порядковый номер выбранного элемента")]
         public int SelectedIndex
         {
-            get { return _selectedIndex; }
+            get { return comboBox.SelectedIndex; }
             set
             {
                 try
@@ -39,7 +39,7 @@ namespace ClassLibraryComboBox
                         comboBox.SelectedIndex = _selectedIndex;
                     }
                     else if (value != 0)
-                        throw new Exception("Выход за пределы массива значений");
+                        throw new Exception("Выход за пределы");
                 }
                 catch (Exception)
                 {
@@ -82,7 +82,14 @@ namespace ClassLibraryComboBox
         /// <param name="element">тип-object</param>
         public void LoadObject(object element)
         {
-            comboBox.Items.Add(element.ToString());
+            List<string> list = new List<string>
+            {
+                element.ToString()
+            };
+            foreach (var elem in list)
+            {
+                comboBox.Items.Add(elem);
+            }
         }
     }
 }
