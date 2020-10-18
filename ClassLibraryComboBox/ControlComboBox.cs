@@ -80,13 +80,9 @@ namespace ClassLibraryComboBox
         /// Добавление в список элемента
         /// </summary>
         /// <param name="element">тип-object</param>
-        public void LoadObject(object element)
+        public void LoadObject<T>(List<T> elements)
         {
-            List<string> list = new List<string>
-            {
-                element.ToString()
-            };
-            foreach (var elem in list)
+            foreach (var elem in elements)
             {
                 comboBox.Items.Add(elem);
             }

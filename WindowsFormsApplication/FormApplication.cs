@@ -19,8 +19,8 @@ namespace WindowsFormsApplication
             controlTextBox.Regexp = @"\d{2}.";
             controlTextBox.Hint = @"10.";
             controlListBox.LoadList(typeof(PropertiesClass));
-            controlComboBox.LoadObject(TestEnum.Значение1);
-            controlComboBox.LoadObject(TestEnum.Значение2);
+            List<string> strList = new List<string> { "Значение 1", "Значение 2", "Значение 3", "Значение 4", "Значение 5" };
+            controlComboBox.LoadObject(strList);
         }
 
         private void buttonChange_Click(object sender, EventArgs e)

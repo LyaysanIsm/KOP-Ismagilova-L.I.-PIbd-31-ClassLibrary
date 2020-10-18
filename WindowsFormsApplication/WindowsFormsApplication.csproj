@@ -55,7 +55,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestEnum.cs" />
     <EmbeddedResource Include="FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
     </EmbeddedResource>
