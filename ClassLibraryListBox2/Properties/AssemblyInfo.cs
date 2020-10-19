@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ClassLibraryComboBox-2")]
+[assembly: AssemblyTitle("ClassLibraryListBox2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ClassLibraryComboBox-2")]
+[assembly: AssemblyProduct("ClassLibraryListBox2")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("f462c6a9-c10a-4aaa-b81e-e2cfb59fbfb7")]
+[assembly: Guid("9199d139-b361-44a3-b8cb-e4697c7ed3f2")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

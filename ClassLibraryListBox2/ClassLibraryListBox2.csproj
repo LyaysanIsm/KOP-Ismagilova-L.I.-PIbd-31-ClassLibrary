@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F462C6A9-C10A-4AAA-B81E-E2CFB59FBFB7}</ProjectGuid>
+    <ProjectGuid>{9199D139-B361-44A3-B8CB-E4697C7ED3F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibraryComboBox_2</RootNamespace>
-    <AssemblyName>ClassLibraryComboBox-2</AssemblyName>
+    <RootNamespace>ClassLibraryListBox2</RootNamespace>
+    <AssemblyName>ClassLibraryListBox2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Student.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControlListBox2.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlListBox2.Designer.cs">
       <DependentUpon>ControlListBox2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
