@@ -24,17 +24,15 @@ namespace WindowsFormsApplication
             controlTextBox.Regexp = @"\d{2}.";
             controlTextBox.Hint = @"10.";
 
-            controlListBox.LoadList(typeof(PropertiesClass));
-
-            string temp = "(Id) (Time) (Number)";
+            string temp = "(Id) (Name) (Age)";
             controlListBox2.setTemplate(temp);
-            var set1 = new Bus { Id = 0, Time = 197, Number = 56 };
-            var set2 = new Bus { Id = 1, Time = 148, Number = 36 };
-            var set3 = new Bus { Id = 2, Time = 260, Number = 59 };
-            var set4 = new Bus { Id = 3, Time = 115, Number = 96 };
+            var set1 = new Student { Id = 0, Name = "Ivan", Age = 20 };
+            var set2 = new Student { Id = 0, Name = "Andrey", Age = 21 };
+            var set3 = new Student { Id = 0, Name = "Dmitriy", Age = 23 };
+            var set4 = new Student { Id = 0, Name = "Petya", Age = 30 };
 
-            controlListBox2.setProperty(set1, "Number", 1);
-            controlListBox2.setProperty(set2, "Id", 3);
+            controlListBox2.setProperty(set1, "Name", 1);
+            controlListBox2.setProperty(set2, "Age", 3);
         }
 
         private void buttonChange_Click(object sender, EventArgs e)

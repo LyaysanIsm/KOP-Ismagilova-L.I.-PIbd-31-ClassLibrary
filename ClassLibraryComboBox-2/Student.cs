@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryListBox2
 {
-    public class Bus
+    public class Student
     {
         public int Id { get; set; }
-        public int Number { get; set; }
-        public int Time { get; set; }
+        public int Age { get; set; }
+        public string Name { get; set; }
     }
 }

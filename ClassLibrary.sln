@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryData", "ClassLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication", "WindowsFormsApplication\WindowsFormsApplication.csproj", "{2F3814EF-6EAC-414A-A3C6-FF2337FB9024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryListBox", "ClassLibraryListBox\ClassLibraryListBox.csproj", "{D3E6F66D-A215-41E6-8417-C3AA74359439}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryComboBox", "ClassLibraryComboBox\ClassLibraryComboBox.csproj", "{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryListBox2", "ClassLibraryComboBox-2\ClassLibraryListBox2.csproj", "{F462C6A9-C10A-4AAA-B81E-E2CFB59FBFB7}"
@@ -27,10 +25,6 @@ Global
 		{2F3814EF-6EAC-414A-A3C6-FF2337FB9024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F3814EF-6EAC-414A-A3C6-FF2337FB9024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F3814EF-6EAC-414A-A3C6-FF2337FB9024}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3E6F66D-A215-41E6-8417-C3AA74359439}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECE79FCA-6ACD-4D27-8389-1351546DBAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU

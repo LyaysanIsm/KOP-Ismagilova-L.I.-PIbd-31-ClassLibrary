@@ -94,10 +94,6 @@
       <Project>{258d3014-8762-41c8-bb89-c113d6a618d4}</Project>
       <Name>ClassLibraryData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClassLibraryListBox\ClassLibraryListBox.csproj">
-      <Project>{d3e6f66d-a215-41e6-8417-c3aa74359439}</Project>
-      <Name>ClassLibraryListBox</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

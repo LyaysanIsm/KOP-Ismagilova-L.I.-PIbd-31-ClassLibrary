@@ -30,7 +30,6 @@
         {
             this.buttonChange = new System.Windows.Forms.Button();
             this.controlTextBox = new ClassLibraryData.ControlTextFieldData();
-            this.controlListBox = new ClassLibraryListBox.ControlListBox();
             this.controlListBox2 = new ClassLibraryListBox2.ControlListBox2();
             this.controlComboBox = new ClassLibraryComboBox.ControlComboBox();
             this.SuspendLayout();
@@ -49,23 +48,17 @@
             // 
             this.controlTextBox.ErrorColor = System.Drawing.Color.Empty;
             this.controlTextBox.Hint = "08.02.2015";
-            this.controlTextBox.Location = new System.Drawing.Point(180, 37);
+            this.controlTextBox.Location = new System.Drawing.Point(189, 40);
             this.controlTextBox.Name = "controlTextBox";
             this.controlTextBox.Regexp = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]";
             this.controlTextBox.Size = new System.Drawing.Size(205, 26);
             this.controlTextBox.TabIndex = 3;
             // 
-            // controlListBox
-            // 
-            this.controlListBox.Location = new System.Drawing.Point(698, 24);
-            this.controlListBox.Name = "controlListBox";
-            this.controlListBox.Size = new System.Drawing.Size(223, 291);
-            this.controlListBox.TabIndex = 0;
-            // 
             // controlListBox2
             // 
-            this.controlListBox2.Location = new System.Drawing.Point(422, 24);
+            this.controlListBox2.Location = new System.Drawing.Point(419, 40);
             this.controlListBox2.Name = "controlListBox2";
+            this.controlListBox2.SelectedIndex = -1;
             this.controlListBox2.Size = new System.Drawing.Size(224, 139);
             this.controlListBox2.TabIndex = 4;
             // 
@@ -82,9 +75,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 344);
+            this.ClientSize = new System.Drawing.Size(655, 258);
             this.Controls.Add(this.controlTextBox);
-            this.Controls.Add(this.controlListBox);
             this.Controls.Add(this.controlListBox2);
             this.Controls.Add(this.buttonChange);
             this.Controls.Add(this.controlComboBox);
@@ -96,7 +88,6 @@
 
         #endregion        
         private ClassLibraryData.ControlTextFieldData controlTextBox;
-        private ClassLibraryListBox.ControlListBox controlListBox;
         private ClassLibraryListBox2.ControlListBox2 controlListBox2;
         private ClassLibraryComboBox.ControlComboBox controlComboBox;
         private System.Windows.Forms.Button buttonChange;
