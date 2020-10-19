@@ -32,6 +32,8 @@
             this.controlTextBox = new ClassLibraryData.ControlTextFieldData();
             this.controlListBox2 = new ClassLibraryListBox2.ControlListBox2();
             this.controlComboBox = new ClassLibraryComboBox.ControlComboBox();
+            this.excelComponent = new ClassLibraryExcelReport.ExcelComponent();
+            this.binaryComponent = new ClassLibraryBinaryBackup.BinaryComponent();
             this.SuspendLayout();
             // 
             // buttonChange
@@ -91,5 +93,7 @@
         private ClassLibraryListBox2.ControlListBox2 controlListBox2;
         private ClassLibraryComboBox.ControlComboBox controlComboBox;
         private System.Windows.Forms.Button buttonChange;
+        private ClassLibraryExcelReport.ExcelComponent excelComponent;
+        private ClassLibraryBinaryBackup.BinaryComponent binaryComponent;
     }
 }

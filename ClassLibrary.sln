@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryComboBox", "Cla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryListBox2", "ClassLibraryListBox2\ClassLibraryListBox2.csproj", "{9199D139-B361-44A3-B8CB-E4697C7ED3F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryExcelReport", "ClassLibraryExcelReport\ClassLibraryExcelReport.csproj", "{626E928B-77DF-4A67-A423-ADCAAC425B02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryBinaryBackup", "ClassLibraryBinaryBackup\ClassLibraryBinaryBackup.csproj", "{61DD341D-7C9B-47A8-A2F0-046551321CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{9199D139-B361-44A3-B8CB-E4697C7ED3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9199D139-B361-44A3-B8CB-E4697C7ED3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9199D139-B361-44A3-B8CB-E4697C7ED3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626E928B-77DF-4A67-A423-ADCAAC425B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626E928B-77DF-4A67-A423-ADCAAC425B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626E928B-77DF-4A67-A423-ADCAAC425B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626E928B-77DF-4A67-A423-ADCAAC425B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61DD341D-7C9B-47A8-A2F0-046551321CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DD341D-7C9B-47A8-A2F0-046551321CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DD341D-7C9B-47A8-A2F0-046551321CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DD341D-7C9B-47A8-A2F0-046551321CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
