@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryListBox2
 {
+    [Serializable]
     public class Student
     {
         public int Id { get; set; }
