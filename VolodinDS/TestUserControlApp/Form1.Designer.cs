@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.inputTextBox = new System.Windows.Forms.TextBox();
             this.getTextButton = new System.Windows.Forms.Button();
             this.treeViewControl = new WindowsFormsControlLibrary.TreeViewControl();
             this.textBoxUserControl = new WindowsFormsControlLibrary.TextBoxUserControl();
             this.checkedListControl = new WindowsFormsControlLibrary.CheckedListControl();
+            this.restoreFromBinary = new WindowsFormsComponentLibrary.RestoreFromBinary(this.components);
             this.SuspendLayout();
             // 
             // inputTextBox
             // 
-            this.inputTextBox.Location = new System.Drawing.Point(349, 408);
+            this.inputTextBox.Location = new System.Drawing.Point(348, 126);
             this.inputTextBox.Multiline = true;
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.ReadOnly = true;
@@ -46,7 +48,7 @@
             // 
             // getTextButton
             // 
-            this.getTextButton.Location = new System.Drawing.Point(349, 362);
+            this.getTextButton.Location = new System.Drawing.Point(348, 80);
             this.getTextButton.Name = "getTextButton";
             this.getTextButton.Size = new System.Drawing.Size(344, 40);
             this.getTextButton.TabIndex = 3;
@@ -58,12 +60,13 @@
             // 
             this.treeViewControl.Location = new System.Drawing.Point(25, 226);
             this.treeViewControl.Name = "treeViewControl";
+            this.treeViewControl.Selected = null;
             this.treeViewControl.Size = new System.Drawing.Size(307, 309);
             this.treeViewControl.TabIndex = 4;
             // 
             // textBoxUserControl
             // 
-            this.textBoxUserControl.Location = new System.Drawing.Point(338, 295);
+            this.textBoxUserControl.Location = new System.Drawing.Point(337, 13);
             this.textBoxUserControl.Name = "textBoxUserControl";
             this.textBoxUserControl.Size = new System.Drawing.Size(368, 61);
             this.textBoxUserControl.TabIndex = 1;
@@ -99,6 +102,7 @@
         private System.Windows.Forms.TextBox inputTextBox;
         private System.Windows.Forms.Button getTextButton;
         private WindowsFormsControlLibrary.TreeViewControl treeViewControl;
+        private WindowsFormsComponentLibrary.RestoreFromBinary restoreFromBinary;
     }
 }
 

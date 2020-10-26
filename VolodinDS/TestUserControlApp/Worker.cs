@@ -1,5 +1,8 @@
-﻿namespace TestUserControlApp
+﻿using System;
+
+namespace TestUserControlApp
 {
+    [Serializable]
     public class Worker
     {
         public string FIO { get; set; }
