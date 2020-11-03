@@ -42,7 +42,6 @@ namespace TestUserControlApp
             });
             treeViewControl.SetPropsOrder("FIO", "Dept");
             treeViewControl.BuildTree<Worker>(workers);
-            treeViewControl.Selected = "FIO 1";
         }
 
         private void GetTextButton_Click(object sender, EventArgs e)

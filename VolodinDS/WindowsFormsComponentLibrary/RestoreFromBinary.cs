@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace WindowsFormsComponentLibrary
 {
@@ -43,7 +44,7 @@ namespace WindowsFormsComponentLibrary
                     if (file.Name == filename)
                     {
                         string dest = Path.Combine(Path.GetDirectoryName(source), file.Name);
-                        file.ExtractToFile(dest);
+                        file.ExtractToFile(dest, true);
                         return dest;
                     }
                 }
@@ -65,6 +66,8 @@ namespace WindowsFormsComponentLibrary
                     try
                     {
                         T deserialized = (T)formatter.Deserialize(fs);
+                        MessageBox.Show("Объект успешно десериализован", "Уведомление",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return deserialized;
                     }
                     catch (SerializationException ex)

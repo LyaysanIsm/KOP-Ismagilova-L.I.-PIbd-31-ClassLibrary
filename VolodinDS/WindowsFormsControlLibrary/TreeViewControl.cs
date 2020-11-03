@@ -22,10 +22,13 @@ namespace WindowsFormsControlLibrary
             }
             set
             {
-                TreeNode selected = treeView.Nodes.Find(value, true)?[0];
-                if (selected != null)
+                if (!string.IsNullOrEmpty(value))
                 {
-                    treeView.SelectedNode = selected;
+                    TreeNode treeNode = treeView.Nodes.Find(value, true)?[0];
+                    if (treeNode != null)
+                    {
+                        treeView.SelectedNode = treeNode;
+                    }
                 }
             }
         }
