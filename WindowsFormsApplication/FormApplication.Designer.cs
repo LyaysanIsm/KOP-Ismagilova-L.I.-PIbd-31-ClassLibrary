@@ -34,6 +34,7 @@
             this.controlComboBox = new ClassLibraryComboBox.ControlComboBox();
             this.excelComponent = new ClassLibraryExcelReport.ExcelComponent();
             this.binaryComponent = new ClassLibraryBinaryBackup.BinaryComponent();
+            this.pdfComponent = new ClassLibraryPDF.PdfComponent();
             this.SuspendLayout();
             // 
             // buttonChange
@@ -95,5 +96,6 @@
         private System.Windows.Forms.Button buttonChange;
         private ClassLibraryExcelReport.ExcelComponent excelComponent;
         private ClassLibraryBinaryBackup.BinaryComponent binaryComponent;
+        private ClassLibraryPDF.PdfComponent pdfComponent;
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryExcelReport
 {
-    public class ExcelParameters
+    internal class ExcelCellParameters
     {
         public Worksheet Worksheet { get; set; }
         public string ColumnName { get; set; }

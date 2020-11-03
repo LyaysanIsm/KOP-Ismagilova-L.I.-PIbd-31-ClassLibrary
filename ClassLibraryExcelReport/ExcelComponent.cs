@@ -15,9 +15,9 @@ namespace ClassLibraryExcelReport
 {
     public partial class ExcelComponent : Component
     {
-        public void CreateExcelReport<T>(string path, string fileName, bool isHorizontalHead, T[] data)
+        public void CreateExcelReport<T>(string fileName, bool isHorizontalHead, T[] data)
         {
-            using (var spreadsheetDocument = SpreadsheetDocument.Create(path + "/" + fileName + ".xlsx", SpreadsheetDocumentType.Workbook))
+            using (var spreadsheetDocument = SpreadsheetDocument.Create(fileName, SpreadsheetDocumentType.Workbook))
             {
                 // Создаем книгу (в ней хранятся листы)
                 var workbookpart = spreadsheetDocument.AddWorkbookPart();
@@ -39,8 +39,7 @@ namespace ClassLibraryExcelReport
                 WorksheetPart worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
                 worksheetPart.Worksheet = new Worksheet(new SheetData());
                 // Добавляем лист в книгу
-                Sheets sheets =
-               spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
+                Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                 Sheet sheet = new Sheet()
                 {
                     Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
@@ -48,38 +47,64 @@ namespace ClassLibraryExcelReport
                     Name = "Лист11"
                 };
                 sheets.Append(sheet);
-
+                MergeCells(new ExcelMergeParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    CellFromName = "A1",
+                    CellToName = "E1"
+                });
+                MergeCells(new ExcelMergeParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    CellFromName = "B2",
+                    CellToName = "C2"
+                });
+                InsertCellInWorksheet(new ExcelCellParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    ShareStringPart = shareStringPart,
+                    ColumnName = "A",
+                    RowIndex = 1,
+                    Text = "Students",
+                    StyleIndex = 2U
+                });
                 var fields = typeof(T).GetProperties();
 
-                var startColumnFrom = isHorizontalHead ? 1 : 3;
-                var startRowFrom = isHorizontalHead ? 2 : 1;
+                var fieldNumHead = 1;
+                foreach (var field in fields)
+                {
+                    var column = this.GetExcelColumnName(isHorizontalHead ? fieldNumHead : 1);
+                    var rowIndex = isHorizontalHead ? (uint)2 : (uint)fieldNumHead;
+                    InsertCellInWorksheet(new ExcelCellParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        ShareStringPart = shareStringPart,
+                        ColumnName = column,
+                        RowIndex = rowIndex,
+                        Text = field.Name,
+                        StyleIndex = 1U
+                    });
+                    fieldNumHead++;
+                }
 
-                var dataRowNum = startRowFrom;
+                var dataRowNum = 3;
                 foreach (var dataRow in data)
                 {
-                    var fieldNum = startColumnFrom;
+                    var fieldNum = 1;
                     foreach (var field in fields)
                     {
                         var column = string.Empty;
-                        var rowIndex = 0U;
-                        if (isHorizontalHead)
-                        {
-                            column = this.GetExcelColumnName(fieldNum);
-                            rowIndex = (uint)dataRowNum;
-                        }
-                        else
-                        {
-                            column = this.GetExcelColumnName(dataRowNum);
-                            rowIndex = (uint)fieldNum;
-                        }
-                        InsertCellInWorksheet(new ExcelParameters
+                        var rowIndex = 1U;
+                        column = this.GetExcelColumnName(isHorizontalHead ? fieldNum : dataRowNum);
+                        rowIndex = isHorizontalHead ? (uint)dataRowNum : (uint)fieldNum;
+                        InsertCellInWorksheet(new ExcelCellParameters
                         {
                             Worksheet = worksheetPart.Worksheet,
                             ShareStringPart = shareStringPart,
                             ColumnName = column,
                             RowIndex = rowIndex,
                             Text = field.GetValue(dataRow).ToString(),
-                            StyleIndex = 0U
+                            StyleIndex = 1U
                         });
                         fieldNum++;
                     }
@@ -290,7 +315,7 @@ namespace ClassLibraryExcelReport
         /// <param name="rowIndex"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        private static void InsertCellInWorksheet(ExcelParameters cellParameters)
+        private static void InsertCellInWorksheet(ExcelCellParameters cellParameters)
         {
             SheetData sheetData = cellParameters.Worksheet.GetFirstChild<SheetData>();
             // Ищем строку, либо добавляем ее
@@ -354,7 +379,35 @@ namespace ClassLibraryExcelReport
                 columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
                 dividend = (int)((dividend - modulo) / 26);
             }
+
             return columnName;
+        }
+        private static void MergeCells(ExcelMergeParameters mergeParameters)
+        {
+            MergeCells mergeCells;
+            if (mergeParameters.Worksheet.Elements<MergeCells>().Count() > 0)
+            {
+                mergeCells = mergeParameters.Worksheet.Elements<MergeCells>().First();
+            }
+            else
+            {
+                mergeCells = new MergeCells();
+                if (mergeParameters.Worksheet.Elements<CustomSheetView>().Count() > 0)
+                {
+                    mergeParameters.Worksheet.InsertAfter(mergeCells,
+                   mergeParameters.Worksheet.Elements<CustomSheetView>().First());
+                }
+                else
+                {
+                    mergeParameters.Worksheet.InsertAfter(mergeCells,
+                   mergeParameters.Worksheet.Elements<SheetData>().First());
+                }
+            }
+            MergeCell mergeCell = new MergeCell()
+            {
+                Reference = new StringValue(mergeParameters.Merge)
+            };
+            mergeCells.Append(mergeCell);
         }
     }
 }
