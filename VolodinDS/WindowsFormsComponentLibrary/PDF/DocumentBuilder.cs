@@ -55,7 +55,7 @@ namespace WindowsFormsComponentLibrary.PDF
                 throw new NullReferenceException("Ссылка на коллекцию строк или " +
                     "коллекцию столбцов таблицы равна null");
             }
-            if (docParams.Data.Rows.Count == 0 && docParams.Data.Columns == null)
+            if (docParams.Data.Rows.Count == 0 && docParams.Data.Columns.Count == 0)
             {
                 throw new Exception("Таблица должна содержать хотя бы " +
                     "один столбец и хотя бы одну строку");

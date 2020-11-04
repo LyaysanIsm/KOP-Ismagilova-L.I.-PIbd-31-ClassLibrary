@@ -32,7 +32,6 @@ namespace TestUserControlApp
 
         private void TestDeserialization()
         {
-            textBox.Text = "Работник: \n";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Worker worker = restoreFromBinary.Deserialize<Worker>(openFileDialog.FileName, "worker.dat");
@@ -67,6 +66,30 @@ namespace TestUserControlApp
             }
         }
 
+        private void TestWordDiagram()
+        {
+            DataTable table = new DataTable();
+            DataColumn firstColumn = new DataColumn("Выручка");
+            DataColumn secondColumn = new DataColumn("Издержки");
+
+            table.Columns.Add(firstColumn);
+            table.Columns.Add(secondColumn);
+
+            table.Rows.Add("20", "16");
+            table.Rows.Add("22", "19");
+            table.Rows.Add("125", "120");
+
+            string[] names = new string[] { "Январь", "Февраль", "Март" };
+            wordDiagram.Categories = names;
+            wordDiagram.DiagramName = "Гистограмма Выручка/Издержки";
+            wordDiagram.SetData(table);
+            if (saveWordDialog.ShowDialog() == DialogResult.OK)
+            {
+                wordDiagram.Path = saveWordDialog.FileName;
+                wordDiagram.CreateDoc();
+            }
+        }
+
         private void DeserializeButton_Click(object sender, EventArgs e)
         {
             TestDeserialization();
@@ -75,6 +98,11 @@ namespace TestUserControlApp
         private void PdfButton_Click(object sender, EventArgs e)
         {
             TestPDF();
+        }
+
+        private void WordButton_Click(object sender, EventArgs e)
+        {
+            TestWordDiagram();
         }
     }
 }

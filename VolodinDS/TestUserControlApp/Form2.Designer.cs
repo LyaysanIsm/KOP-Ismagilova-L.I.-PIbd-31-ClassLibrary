@@ -32,10 +32,13 @@
             this.textBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.restoreFromBinary = new WindowsFormsComponentLibrary.RestoreFromBinary(this.components);
-            this.tablePDF = new WindowsFormsComponentLibrary.TablePDF(this.components);
             this.deserializeButton = new System.Windows.Forms.Button();
             this.pdfButton = new System.Windows.Forms.Button();
+            this.wordButton = new System.Windows.Forms.Button();
+            this.restoreFromBinary = new WindowsFormsComponentLibrary.RestoreFromBinary(this.components);
+            this.tablePDF = new WindowsFormsComponentLibrary.TablePDF(this.components);
+            this.wordDiagram = new WindowsFormsComponentLibrary.WordDiagram(this.components);
+            this.saveWordDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // textBox
@@ -43,8 +46,9 @@
             this.textBox.Location = new System.Drawing.Point(13, 13);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(290, 425);
+            this.textBox.Size = new System.Drawing.Size(290, 214);
             this.textBox.TabIndex = 0;
+            this.textBox.Text = "Работник:";
             // 
             // openFileDialog
             // 
@@ -58,7 +62,7 @@
             // 
             // deserializeButton
             // 
-            this.deserializeButton.Location = new System.Drawing.Point(13, 444);
+            this.deserializeButton.Location = new System.Drawing.Point(12, 233);
             this.deserializeButton.Name = "deserializeButton";
             this.deserializeButton.Size = new System.Drawing.Size(290, 60);
             this.deserializeButton.TabIndex = 1;
@@ -68,7 +72,7 @@
             // 
             // pdfButton
             // 
-            this.pdfButton.Location = new System.Drawing.Point(13, 510);
+            this.pdfButton.Location = new System.Drawing.Point(12, 299);
             this.pdfButton.Name = "pdfButton";
             this.pdfButton.Size = new System.Drawing.Size(290, 60);
             this.pdfButton.TabIndex = 2;
@@ -76,11 +80,26 @@
             this.pdfButton.UseVisualStyleBackColor = true;
             this.pdfButton.Click += new System.EventHandler(this.PdfButton_Click);
             // 
+            // wordButton
+            // 
+            this.wordButton.Location = new System.Drawing.Point(12, 365);
+            this.wordButton.Name = "wordButton";
+            this.wordButton.Size = new System.Drawing.Size(290, 60);
+            this.wordButton.TabIndex = 3;
+            this.wordButton.Text = "WORD";
+            this.wordButton.UseVisualStyleBackColor = true;
+            this.wordButton.Click += new System.EventHandler(this.WordButton_Click);
+            // 
+            // saveWordDialog
+            // 
+            this.saveWordDialog.Filter = "Файлы Word|*.docx";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 581);
+            this.ClientSize = new System.Drawing.Size(314, 437);
+            this.Controls.Add(this.wordButton);
             this.Controls.Add(this.pdfButton);
             this.Controls.Add(this.deserializeButton);
             this.Controls.Add(this.textBox);
@@ -101,5 +120,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button deserializeButton;
         private System.Windows.Forms.Button pdfButton;
+        private System.Windows.Forms.Button wordButton;
+        private WindowsFormsComponentLibrary.WordDiagram wordDiagram;
+        private System.Windows.Forms.SaveFileDialog saveWordDialog;
     }
 }
