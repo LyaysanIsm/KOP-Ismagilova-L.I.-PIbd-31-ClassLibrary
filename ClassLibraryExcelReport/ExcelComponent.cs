@@ -56,8 +56,8 @@ namespace ClassLibraryExcelReport
                 MergeCells(new ExcelMergeParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
-                    CellFromName = "B2",
-                    CellToName = "C2"
+                    CellFromName = "C2",
+                    CellToName = "D2"
                 });
                 InsertCellInWorksheet(new ExcelCellParameters
                 {
@@ -68,8 +68,10 @@ namespace ClassLibraryExcelReport
                     Text = "Students",
                     StyleIndex = 2U
                 });
+
                 var fields = typeof(T).GetProperties();
 
+                //заголовки полей (названия свойств)
                 var fieldNumHead = 1;
                 foreach (var field in fields)
                 {
@@ -87,6 +89,7 @@ namespace ClassLibraryExcelReport
                     fieldNumHead++;
                 }
 
+                //таблица со значениями
                 var dataRowNum = 3;
                 foreach (var dataRow in data)
                 {

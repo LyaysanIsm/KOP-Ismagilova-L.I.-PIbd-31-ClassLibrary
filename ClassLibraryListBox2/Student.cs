@@ -9,10 +9,11 @@ namespace ClassLibraryListBox2
     [Serializable]
     public class Student
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Items { get; set; }
         public int Course { get; set; }
         public int Age { get; set; }
-        public int Id { get; set; }
+
     }
 }
