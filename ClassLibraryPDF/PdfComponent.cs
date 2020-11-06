@@ -29,13 +29,18 @@ namespace ClassLibraryPDF
             chart.DataLabel.Type = dataLabelType;
 
             var values = chart.SeriesCollection.AddSeries();
+            values.FillFormat.Color = Colors.Pink;
             chart.XAxis.Title.Caption = "Student";
+
+            //деления для оси
             chart.XAxis.MajorTickMark = TickMarkType.Outside;
             chart.YAxis.HasMajorGridlines = true;
 
             chart.PlotArea.LineFormat.Color = Colors.Black;
             chart.PlotArea.LineFormat.Width = 1;
+
             var fields = typeof(T).GetProperties();
+
             foreach (var field in fields)
             {
                 double numValue;

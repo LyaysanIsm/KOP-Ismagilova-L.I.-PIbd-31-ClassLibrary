@@ -15,7 +15,7 @@ namespace ClassLibraryExcelReport
 {
     public partial class ExcelComponent : Component
     {
-        public void CreateExcelReport<T>(string fileName, bool isHorizontalHead, T[] data)
+        public void CreateExcelReport<T>(string fileName, bool isHorizontalHead, T[] data, int[] toMerge, string[] headers)
         {
             using (var spreadsheetDocument = SpreadsheetDocument.Create(fileName, SpreadsheetDocumentType.Workbook))
             {
@@ -47,18 +47,14 @@ namespace ClassLibraryExcelReport
                     Name = "Лист11"
                 };
                 sheets.Append(sheet);
+
                 MergeCells(new ExcelMergeParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
                     CellFromName = "A1",
                     CellToName = "E1"
                 });
-                MergeCells(new ExcelMergeParameters
-                {
-                    Worksheet = worksheetPart.Worksheet,
-                    CellFromName = "C2",
-                    CellToName = "D2"
-                });
+
                 InsertCellInWorksheet(new ExcelCellParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
@@ -71,7 +67,20 @@ namespace ClassLibraryExcelReport
 
                 var fields = typeof(T).GetProperties();
 
-                //заголовки полей (названия свойств)
+                //объединение колонок
+                int currentCol = 1;
+                foreach (int header in toMerge)
+                {
+                    MergeCells(new ExcelMergeParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        CellFromName = GetExcelColumnName(currentCol) + "2",
+                        CellToName = GetExcelColumnName(currentCol + (header - 1)) + "2"
+                    });
+                    currentCol += header;
+                }
+
+                //заголовки колонок (названия свойств)
                 var fieldNumHead = 1;
                 foreach (var field in fields)
                 {
@@ -89,7 +98,7 @@ namespace ClassLibraryExcelReport
                     fieldNumHead++;
                 }
 
-                //таблица со значениями
+                //значения свойств в таблице
                 var dataRowNum = 3;
                 foreach (var dataRow in data)
                 {
@@ -98,8 +107,16 @@ namespace ClassLibraryExcelReport
                     {
                         var column = string.Empty;
                         var rowIndex = 1U;
-                        column = this.GetExcelColumnName(isHorizontalHead ? fieldNum : dataRowNum);
-                        rowIndex = isHorizontalHead ? (uint)dataRowNum : (uint)fieldNum;
+                        if (isHorizontalHead)
+                        {
+                            column = this.GetExcelColumnName(fieldNum);
+                            rowIndex = (uint)dataRowNum;
+                        }
+                        else
+                        {
+                            column = this.GetExcelColumnName(dataRowNum);
+                            rowIndex = (uint)fieldNum;
+                        }
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
                             Worksheet = worksheetPart.Worksheet,
@@ -115,6 +132,23 @@ namespace ClassLibraryExcelReport
                 }
                 workbookpart.Workbook.Save();
             }
+        }
+
+        //по номеру колонки определяем буквенное значение
+        private string GetExcelColumnName(int columnNumber)
+        {
+            int dividend = columnNumber;
+            string columnName = string.Empty;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+
+            return columnName;
         }
 
         /// <summary>
@@ -370,21 +404,6 @@ namespace ClassLibraryExcelReport
             cell.StyleIndex = cellParameters.StyleIndex;
         }
 
-        private string GetExcelColumnName(int columnNumber)
-        {
-            int dividend = columnNumber;
-            string columnName = string.Empty;
-            int modulo;
-
-            while (dividend > 0)
-            {
-                modulo = (dividend - 1) % 26;
-                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
-                dividend = (int)((dividend - modulo) / 26);
-            }
-
-            return columnName;
-        }
         private static void MergeCells(ExcelMergeParameters mergeParameters)
         {
             MergeCells mergeCells;

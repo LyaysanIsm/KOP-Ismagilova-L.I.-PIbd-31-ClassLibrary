@@ -46,8 +46,11 @@ namespace WindowsFormsApplication
             set1.Items = 15;
             set1.Course = 3;
 
+            int[] toMerge = new int[] { 2, 2, 1 };
+            string[] headers = new string[] { "header-1", "header-2", "header-3" };
+
             //binaryComponent.saveData<Student>("D:/1/2/3", list.ToArray());
-            excelComponent.CreateExcelReport("D:/1/2/3/excel.xlsx", true, list.ToArray());
+            excelComponent.CreateExcelReport("D:/1/2/3/excel.xlsx", true, list.ToArray(), toMerge, headers);
             pdfComponent.CreatePdfDiagram("D:/1/2/3/pdf.pdf", set1, DataLabelType.Value);
         }
 
