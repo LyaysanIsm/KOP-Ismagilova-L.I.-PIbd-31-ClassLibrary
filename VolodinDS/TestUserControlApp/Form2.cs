@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace TestUserControlApp
@@ -11,7 +10,6 @@ namespace TestUserControlApp
         {
             InitializeComponent();
         }
-
 
         //private void TestSerialization()
         //{
@@ -34,9 +32,17 @@ namespace TestUserControlApp
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Worker worker = restoreFromBinary.Deserialize<Worker>(openFileDialog.FileName, "worker.dat");
-                textBox.Text += ($"{Environment.NewLine}{worker.FIO}{Environment.NewLine}" +
-                    $"{worker.Dept}{Environment.NewLine}{worker.Position}");
+                try
+                {
+                    Worker worker = restoreFromBinary.Deserialize<Worker>(openFileDialog.FileName, "worker.dat");
+                    textBox.Text += ($"{Environment.NewLine}{worker.FIO}{Environment.NewLine}" +
+                        $"{worker.Dept}{Environment.NewLine}{worker.Position}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

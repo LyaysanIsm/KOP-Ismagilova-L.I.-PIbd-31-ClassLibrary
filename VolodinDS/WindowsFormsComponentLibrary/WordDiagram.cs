@@ -59,14 +59,14 @@ namespace WindowsFormsComponentLibrary
                 WordDataVerifier.CheckData(wordDocData);
                 WordBuilder wordBuilder = new WordBuilder();
                 wordBuilder.CreatePackage(wordDocData);
+                MessageBox.Show("Сохранение прошло успешно", "Уведомление",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Сохранение прошло успешно", "Уведомление",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

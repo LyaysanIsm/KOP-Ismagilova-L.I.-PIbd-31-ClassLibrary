@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Runtime.Serialization;
@@ -72,11 +71,13 @@ namespace WindowsFormsComponentLibrary
                     }
                     catch (SerializationException ex)
                     {
-                        Debug.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message, "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message, "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     return default;
                 }

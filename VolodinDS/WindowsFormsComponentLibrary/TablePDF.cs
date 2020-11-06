@@ -36,14 +36,14 @@ namespace WindowsFormsComponentLibrary
             {
                 docParams.Path = path;
                 DocumentBuilder.BuildDoc(docParams);
+                MessageBox.Show("Сохранение прошло успешно", "Уведомление",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Сохранение прошло успешно", "Уведомление",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
