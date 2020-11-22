@@ -37,19 +37,21 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonChart = new System.Windows.Forms.Button();
             this.buttonReport = new System.Windows.Forms.Button();
+            this.buttonClone = new System.Windows.Forms.Button();
+            this.componentPrototype1 = new ClassLibraryPrototype.ComponentPrototype(this.components);
             this.SuspendLayout();
             // 
             // controlTree
             // 
             this.controlTree.Location = new System.Drawing.Point(12, 12);
             this.controlTree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.controlTree.Name = "controlTree";            
-            this.controlTree.Size = new System.Drawing.Size(530, 236);
+            this.controlTree.Name = "controlTree";
+            this.controlTree.Size = new System.Drawing.Size(511, 237);
             this.controlTree.TabIndex = 0;
             // 
             // buttonBackup
             // 
-            this.buttonBackup.Location = new System.Drawing.Point(12, 253);
+            this.buttonBackup.Location = new System.Drawing.Point(12, 292);
             this.buttonBackup.Name = "buttonBackup";
             this.buttonBackup.Size = new System.Drawing.Size(93, 26);
             this.buttonBackup.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(422, 253);
+            this.buttonCreate.Location = new System.Drawing.Point(430, 292);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(93, 26);
             this.buttonCreate.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             // buttonChart
             // 
-            this.buttonChart.Location = new System.Drawing.Point(144, 253);
+            this.buttonChart.Location = new System.Drawing.Point(151, 292);
             this.buttonChart.Name = "buttonChart";
             this.buttonChart.Size = new System.Drawing.Size(110, 26);
             this.buttonChart.TabIndex = 4;
@@ -79,7 +81,7 @@
             // 
             // buttonReport
             // 
-            this.buttonReport.Location = new System.Drawing.Point(289, 253);
+            this.buttonReport.Location = new System.Drawing.Point(302, 292);
             this.buttonReport.Name = "buttonReport";
             this.buttonReport.Size = new System.Drawing.Size(93, 26);
             this.buttonReport.TabIndex = 5;
@@ -87,11 +89,22 @@
             this.buttonReport.UseVisualStyleBackColor = true;
             this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
+            // buttonClone
+            // 
+            this.buttonClone.Location = new System.Drawing.Point(551, 292);
+            this.buttonClone.Name = "buttonClone";
+            this.buttonClone.Size = new System.Drawing.Size(109, 26);
+            this.buttonClone.TabIndex = 6;
+            this.buttonClone.Text = "Клонировать";
+            this.buttonClone.UseVisualStyleBackColor = true;
+            this.buttonClone.Click += new System.EventHandler(this.buttonClone_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 294);
+            this.ClientSize = new System.Drawing.Size(688, 330);
+            this.Controls.Add(this.buttonClone);
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.buttonChart);
             this.Controls.Add(this.buttonCreate);
@@ -113,5 +126,7 @@
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonChart;
         private System.Windows.Forms.Button buttonReport;
+        private System.Windows.Forms.Button buttonClone;
+        private ClassLibraryPrototype.ComponentPrototype componentPrototype1;
     }
 }

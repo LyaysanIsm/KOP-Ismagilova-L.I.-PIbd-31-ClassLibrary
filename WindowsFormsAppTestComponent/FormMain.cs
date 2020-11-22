@@ -21,12 +21,11 @@ namespace WindowsFormsAppTestComponent
 
         private readonly IProductLogic logic;
 
-
         public FormMain(IProductLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
-            controlTree.Order("Category", "Name", "Count");
+            controlTree.Order("Name", "Category", "Count");
         }
 
         private void LoadData()
@@ -138,6 +137,13 @@ namespace WindowsFormsAppTestComponent
                     }
                 }
             }
+        }
+
+        private void buttonClone_Click(object sender, EventArgs e)
+        {
+            string[] elems = controlTree.FullPath;
+            Product obj = componentPrototype1.CloneProduct(elems);
+            controlTree.addNode(obj.Clone());
         }
     }
 }

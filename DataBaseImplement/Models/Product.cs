@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseImplement.Models
 {
-    public class Product
+    public class Product : ICloneable
     {
         public int Id { get; set; }
 
@@ -18,5 +18,16 @@ namespace DataBaseImplement.Models
 
         [Required]
         public Category Category { get; set; }
+
+        public object Clone()
+        {
+            return new Product
+            {
+                Id = Id,
+                Name = Name,
+                Category = Category,
+                Count = Count
+            };
+        }
     }
 }

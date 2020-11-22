@@ -159,9 +159,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20201116132416_InitialCreate.cs" />
-    <Compile Include="Migrations\20201116132416_InitialCreate.designer.cs">
-      <DependentUpon>20201116132416_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20201122164458_InitialCreate.cs" />
+    <Compile Include="Migrations\20201122164458_InitialCreate.designer.cs">
+      <DependentUpon>20201122164458_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ProductDatabaseModelSnapshot.cs" />
     <Compile Include="ProductDatabase.cs" />
@@ -173,6 +173,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
