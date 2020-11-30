@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseImplement", "DataBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPrototype", "ClassLibraryPrototype\ClassLibraryPrototype.csproj", "{78F5FFA7-5F35-4132-96DD-60DFEC08A72C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDecorator", "ClassLibraryDecorator\ClassLibraryDecorator.csproj", "{16D80883-3AB8-4BCA-AD32-1E280F2177AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{78F5FFA7-5F35-4132-96DD-60DFEC08A72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F5FFA7-5F35-4132-96DD-60DFEC08A72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F5FFA7-5F35-4132-96DD-60DFEC08A72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D80883-3AB8-4BCA-AD32-1E280F2177AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D80883-3AB8-4BCA-AD32-1E280F2177AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D80883-3AB8-4BCA-AD32-1E280F2177AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D80883-3AB8-4BCA-AD32-1E280F2177AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,5 +14,6 @@ namespace BusinessLogic.BindingModel
         public int? Count { get; set; }
 
         public Category Category { get; set; }
+        public string KindOfProduct { get; set; }
     }
 }

@@ -36,7 +36,8 @@ namespace WindowsFormsAppTestComponent
                 {
                     Name = textBoxName.Text,
                     Category = (Category)controlSelectedComboBoxEnum.SelectedItem,
-                    Count = controlnullableInt.Value
+                    Count = controlnullableInt.Value,
+                    KindOfProduct = userControlDecorator.Kindofproduct
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

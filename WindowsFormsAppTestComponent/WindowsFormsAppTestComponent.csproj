@@ -232,6 +232,10 @@
       <Project>{008be98d-2f06-460c-ad0d-19ea67bd038c}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassLibraryDecorator\ClassLibraryDecorator.csproj">
+      <Project>{16d80883-3ab8-4bca-ad32-1e280f2177af}</Project>
+      <Name>ClassLibraryDecorator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassLibraryPrototype\ClassLibraryPrototype.csproj">
       <Project>{78f5ffa7-5f35-4132-96dd-60dfec08a72c}</Project>
       <Name>ClassLibraryPrototype</Name>

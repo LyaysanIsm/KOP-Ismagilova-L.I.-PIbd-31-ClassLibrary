@@ -11,7 +11,6 @@ namespace ClassLibraryPrototype
 {
     public partial class ComponentPrototype : Component
     {
-
         public ComponentPrototype()
         {
             InitializeComponent();

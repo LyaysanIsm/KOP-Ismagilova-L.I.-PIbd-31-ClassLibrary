@@ -14,7 +14,8 @@ namespace DataBaseImplement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     Count = table.Column<int>(nullable: true),
-                    Category = table.Column<int>(nullable: false)
+                    Category = table.Column<int>(nullable: false),
+                    KindOfProduct = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

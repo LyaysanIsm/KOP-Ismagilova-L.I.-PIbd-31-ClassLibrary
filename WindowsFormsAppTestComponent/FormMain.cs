@@ -25,7 +25,7 @@ namespace WindowsFormsAppTestComponent
         {
             InitializeComponent();
             this.logic = logic;
-            controlTree.Order("Name", "Category", "Count");
+            controlTree.Order("Name", "Category", "Count", "KindOfProduct");
         }
 
         private void LoadData()
@@ -114,7 +114,8 @@ namespace WindowsFormsAppTestComponent
                     Id = product.Id,
                     Name = product.Name,
                     Category = product.Category,
-                    Count = product.Count
+                    Count = product.Count,
+                    KindOfProduct = product.KindOfProduct
                 };
                 count++;
             }

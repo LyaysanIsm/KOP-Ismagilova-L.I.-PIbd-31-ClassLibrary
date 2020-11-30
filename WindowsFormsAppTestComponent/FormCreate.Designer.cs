@@ -35,6 +35,7 @@
             this.controlnullableInt = new WindowsFormsControlLibrary.Input.ControlInputNullableInt();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.controlSelectedComboBoxEnum = new WindowsFormsControlLibrary.Selected.ControlSelectedComboBoxEnum();
+            this.userControlDecorator = new ClassLibraryDecorator.UserControlDecorator();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +82,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(90, 184);
+            this.buttonCreate.Location = new System.Drawing.Point(102, 263);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(134, 26);
             this.buttonCreate.TabIndex = 5;
@@ -97,12 +98,20 @@
             this.controlSelectedComboBoxEnum.SelectedItem = null;
             this.controlSelectedComboBoxEnum.Size = new System.Drawing.Size(201, 21);
             this.controlSelectedComboBoxEnum.TabIndex = 6;
+            //
+            // userControlDecorator1
+            // 
+            this.userControlDecorator.Location = new System.Drawing.Point(12, 168);
+            this.userControlDecorator.Name = "userControlDecorator";
+            this.userControlDecorator.Size = new System.Drawing.Size(165, 89);
+            this.userControlDecorator.TabIndex = 7;
             // 
             // FormCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 241);
+            this.ClientSize = new System.Drawing.Size(327, 307);
+            this.Controls.Add(this.userControlDecorator);
             this.Controls.Add(this.controlSelectedComboBoxEnum);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.controlnullableInt);
@@ -126,5 +135,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonCreate;
+        private ClassLibraryDecorator.UserControlDecorator userControlDecorator;
     }
 }
