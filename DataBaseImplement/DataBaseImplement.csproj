@@ -159,9 +159,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20201130133147_InitialCreate.cs" />
-    <Compile Include="Migrations\20201130133147_InitialCreate.designer.cs">
-      <DependentUpon>20201130133147_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20201130144210_InitialCreate.cs" />
+    <Compile Include="Migrations\20201130144210_InitialCreate.designer.cs">
+      <DependentUpon>20201130144210_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ProductDatabaseModelSnapshot.cs" />
     <Compile Include="ProductDatabase.cs" />

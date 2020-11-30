@@ -22,5 +22,8 @@ namespace BusinessLogic.VIewModel
 
         [DisplayName("Вид продукта")]
         public string KindOfProduct { get; set; }
+
+        [DisplayName("Цена")]
+        public int Price { get; set; }
     }
 }

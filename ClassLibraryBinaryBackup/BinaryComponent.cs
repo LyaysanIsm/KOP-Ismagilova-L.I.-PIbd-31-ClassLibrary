@@ -40,7 +40,7 @@ namespace ClassLibraryBinaryBackup
                 ZipFile.CreateFromDirectory(tempPath, archName);
                 tempDir.Delete(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Ошибка сериализации");
             }

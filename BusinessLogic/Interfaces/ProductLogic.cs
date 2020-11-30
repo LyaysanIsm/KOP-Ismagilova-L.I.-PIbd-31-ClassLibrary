@@ -32,7 +32,8 @@ namespace BusinessLogic.Interfaces
                         Name = model.Name,
                         Count = model.Count,
                         Category = model.Category,
-                        KindOfProduct = model.KindOfProduct
+                        KindOfProduct = model.KindOfProduct,
+                        Price = model.Price
                     };
                     context.Products.Add(product);
                     context.SaveChanges();
@@ -42,6 +43,7 @@ namespace BusinessLogic.Interfaces
                 product.Count = model.Count;
                 product.Category = model.Category;
                 product.KindOfProduct = model.KindOfProduct;
+                product.Price = model.Price;
                 context.SaveChanges();
             }
         }
@@ -76,7 +78,8 @@ namespace BusinessLogic.Interfaces
                    Name = rec.Name,
                    Category = rec.Category,
                    Count = rec.Count,
-                   KindOfProduct = rec.KindOfProduct
+                   KindOfProduct = rec.KindOfProduct,
+                   Price = rec.Price
                })
                .ToList();
             }

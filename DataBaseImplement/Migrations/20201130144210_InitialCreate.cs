@@ -15,7 +15,8 @@ namespace DataBaseImplement.Migrations
                     Name = table.Column<string>(nullable: false),
                     Count = table.Column<int>(nullable: true),
                     Category = table.Column<int>(nullable: false),
-                    KindOfProduct = table.Column<string>(nullable: true)
+                    KindOfProduct = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

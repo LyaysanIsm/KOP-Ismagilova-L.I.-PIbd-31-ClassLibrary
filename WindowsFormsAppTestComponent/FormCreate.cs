@@ -37,7 +37,8 @@ namespace WindowsFormsAppTestComponent
                     Name = textBoxName.Text,
                     Category = (Category)controlSelectedComboBoxEnum.SelectedItem,
                     Count = controlnullableInt.Value,
-                    KindOfProduct = userControlDecorator.Kindofproduct
+                    KindOfProduct = userControlDecorator.Kindofproduct,
+                    Price = Int32.Parse(textBoxPrice.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -47,6 +48,19 @@ namespace WindowsFormsAppTestComponent
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void textBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPrice.Text != "" && controlnullableInt.Value != 0)
+            {
+                userControlInterpreter.Count = Convert.ToInt32(controlnullableInt.Value);
+                userControlInterpreter.Price = Int32.Parse(textBoxPrice.Text);                
+            }
+        }
+
+        private void userControlInterpreter_Click(object sender, EventArgs e)
+        {
+            textBoxCost.Text = userControlInterpreter.Cost;
         }
     }
 }
