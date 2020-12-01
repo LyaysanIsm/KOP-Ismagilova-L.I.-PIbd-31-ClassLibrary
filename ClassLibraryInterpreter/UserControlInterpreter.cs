@@ -53,7 +53,7 @@ namespace ClassLibraryInterpreter
                 expre = new MultiplyExpression(new NumberExpression(count), new NumberExpression(price));
                 if (expre != null)
                 {
-                    cost = expre.ToString();
+                    cost = expre.Interpret(price).ToString();
                 }
             }
         }

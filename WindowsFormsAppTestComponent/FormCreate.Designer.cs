@@ -41,6 +41,7 @@
             this.textBoxCost = new System.Windows.Forms.TextBox();
             this.userControlDecorator = new ClassLibraryDecorator.UserControlDecorator();
             this.userControlInterpreter = new ClassLibraryInterpreter.UserControlInterpreter();
+            this.buttoncost = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -146,17 +147,27 @@
             // 
             // userControlInterpreter
             // 
-            this.userControlInterpreter.Location = new System.Drawing.Point(86, 370);
+            this.userControlInterpreter.Location = new System.Drawing.Point(86, 403);
             this.userControlInterpreter.Name = "userControlInterpreter";
             this.userControlInterpreter.Size = new System.Drawing.Size(150, 30);
             this.userControlInterpreter.TabIndex = 10;
-            this.userControlInterpreter.Click += new System.EventHandler(this.userControlInterpreter_Click);
+            // 
+            // buttoncost
+            // 
+            this.buttoncost.Location = new System.Drawing.Point(86, 374);
+            this.buttoncost.Name = "buttoncost";
+            this.buttoncost.Size = new System.Drawing.Size(150, 23);
+            this.buttoncost.TabIndex = 13;
+            this.buttoncost.Text = "Показать стоимость";
+            this.buttoncost.UseVisualStyleBackColor = true;
+            this.buttoncost.Click += new System.EventHandler(this.buttoncost_Click);
             // 
             // FormCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 412);
+            this.ClientSize = new System.Drawing.Size(313, 453);
+            this.Controls.Add(this.buttoncost);
             this.Controls.Add(this.textBoxCost);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -192,5 +203,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCost;
+        private System.Windows.Forms.Button buttoncost;
     }
 }

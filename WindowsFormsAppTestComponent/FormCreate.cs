@@ -54,11 +54,10 @@ namespace WindowsFormsAppTestComponent
             if (textBoxPrice.Text != "" && controlnullableInt.Value != 0)
             {
                 userControlInterpreter.Count = Convert.ToInt32(controlnullableInt.Value);
-                userControlInterpreter.Price = Int32.Parse(textBoxPrice.Text);                
+                userControlInterpreter.Price = Int32.Parse(textBoxPrice.Text);
             }
         }
-
-        private void userControlInterpreter_Click(object sender, EventArgs e)
+        private void buttoncost_Click(object sender, EventArgs e)
         {
             textBoxCost.Text = userControlInterpreter.Cost;
         }
