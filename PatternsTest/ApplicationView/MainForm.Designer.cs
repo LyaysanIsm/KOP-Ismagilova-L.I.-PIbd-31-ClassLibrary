@@ -37,6 +37,7 @@ namespace ApplicationView
             this.appleButton = new System.Windows.Forms.Button();
             this.samsungButton = new System.Windows.Forms.Button();
             this.xiaomiButton = new System.Windows.Forms.Button();
+            this.ordersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +129,23 @@ namespace ApplicationView
             this.xiaomiButton.UseVisualStyleBackColor = true;
             this.xiaomiButton.Click += new System.EventHandler(this.XiaomiButton_Click);
             // 
+            // ordersButton
+            // 
+            this.ordersButton.Location = new System.Drawing.Point(1062, 393);
+            this.ordersButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ordersButton.Name = "ordersButton";
+            this.ordersButton.Size = new System.Drawing.Size(321, 81);
+            this.ordersButton.TabIndex = 4;
+            this.ordersButton.Text = "Посмотреть заказы";
+            this.ordersButton.UseVisualStyleBackColor = true;
+            this.ordersButton.Click += new System.EventHandler(this.OrdersButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1396, 486);
+            this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.xiaomiButton);
             this.Controls.Add(this.samsungButton);
             this.Controls.Add(this.appleButton);
@@ -142,6 +155,7 @@ namespace ApplicationView
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Смартфоны";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -157,6 +171,7 @@ namespace ApplicationView
         private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn productManufacturerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn productManufacturerCountry;
+        private System.Windows.Forms.Button ordersButton;
     }
 }
 

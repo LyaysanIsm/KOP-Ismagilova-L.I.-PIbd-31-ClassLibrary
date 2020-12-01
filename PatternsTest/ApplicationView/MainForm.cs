@@ -1,23 +1,44 @@
 ﻿using ApplicationLogic.BindingModels;
+using ApplicationLogic.DataAccessLogic;
 using ApplicationLogic.Factories;
+using ApplicationLogic.Interfaces;
 using ApplicationLogic.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using Unity;
 
 namespace ApplicationView
 {
     public partial class MainForm : Form
     {
+        [Dependency]
+        public new IUnityContainer Container { get; set; }
+
         private readonly ProductFactory factory;
-        public MainForm(ProductFactory factory)
+        private readonly ICrudLogic<Product> logic;
+        public MainForm(ProductFactory factory, ICrudLogic<Product> logic)
         {
             InitializeComponent();
             this.factory = factory;
+            this.logic = logic;
         }
+
+        private void LoadData()
+        {
+            productGridView.Rows.Clear();
+            List<Product> products = logic.Read(null);
+            foreach (var product in products)
+            {
+                productGridView.Rows.Add(product.Name, product.Price,
+                    product.Manufacturer.Name, product.Manufacturer.Country);
+            }
+        }
+
         private void AddProduct(Product product)
         {
-            productGridView.Rows.Add(product.Name, product.Price,
-                product.Manufacturer.Name, product.Manufacturer.Country);
+            logic.Create(product);
+            LoadData();
         }
 
         private void AppleButton_Click(object sender, EventArgs e)
@@ -60,6 +81,17 @@ namespace ApplicationView
             {
                 return null;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void OrdersButton_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<OrdersForm>();
+            form.ShowDialog();
         }
     }
 }

@@ -96,7 +96,7 @@ namespace ApplicationView
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ProductCreationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SmartphoneCreationForm";
+            this.Text = "Новый смартфон";
             this.ResumeLayout(false);
             this.PerformLayout();
 
