@@ -31,6 +31,8 @@ namespace ApplicationView
                 ProductLogic>(new HierarchicalLifetimeManager());
             container.RegisterType<ICrudLogic<Order>,
                 OrderLogic>(new HierarchicalLifetimeManager());
+            container.RegisterType<ICrudLogic<Warehouse>,
+                WarehouseLogic>(new HierarchicalLifetimeManager());
             container.RegisterType<FileStorage>(new HierarchicalLifetimeManager());
             return container;
         }

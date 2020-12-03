@@ -38,6 +38,7 @@ namespace ApplicationView
             this.samsungButton = new System.Windows.Forms.Button();
             this.xiaomiButton = new System.Windows.Forms.Button();
             this.ordersButton = new System.Windows.Forms.Button();
+            this.deliveryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace ApplicationView
             this.productGridView.RowHeadersVisible = false;
             this.productGridView.RowHeadersWidth = 62;
             this.productGridView.RowTemplate.Height = 28;
-            this.productGridView.Size = new System.Drawing.Size(1034, 458);
+            this.productGridView.Size = new System.Drawing.Size(1034, 560);
             this.productGridView.TabIndex = 0;
             // 
             // productName
@@ -131,7 +132,7 @@ namespace ApplicationView
             // 
             // ordersButton
             // 
-            this.ordersButton.Location = new System.Drawing.Point(1062, 393);
+            this.ordersButton.Location = new System.Drawing.Point(1062, 495);
             this.ordersButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ordersButton.Name = "ordersButton";
             this.ordersButton.Size = new System.Drawing.Size(321, 81);
@@ -140,11 +141,23 @@ namespace ApplicationView
             this.ordersButton.UseVisualStyleBackColor = true;
             this.ordersButton.Click += new System.EventHandler(this.OrdersButton_Click);
             // 
+            // deliveryButton
+            // 
+            this.deliveryButton.Location = new System.Drawing.Point(1062, 408);
+            this.deliveryButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.deliveryButton.Name = "deliveryButton";
+            this.deliveryButton.Size = new System.Drawing.Size(321, 81);
+            this.deliveryButton.TabIndex = 5;
+            this.deliveryButton.Text = "Заказать доставку";
+            this.deliveryButton.UseVisualStyleBackColor = true;
+            this.deliveryButton.Click += new System.EventHandler(this.DeliveryButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 486);
+            this.ClientSize = new System.Drawing.Size(1396, 588);
+            this.Controls.Add(this.deliveryButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.xiaomiButton);
             this.Controls.Add(this.samsungButton);
@@ -172,6 +185,7 @@ namespace ApplicationView
         private System.Windows.Forms.DataGridViewTextBoxColumn productManufacturerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn productManufacturerCountry;
         private System.Windows.Forms.Button ordersButton;
+        private System.Windows.Forms.Button deliveryButton;
     }
 }
 

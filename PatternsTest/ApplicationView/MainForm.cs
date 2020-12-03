@@ -1,5 +1,4 @@
 ﻿using ApplicationLogic.BindingModels;
-using ApplicationLogic.DataAccessLogic;
 using ApplicationLogic.Factories;
 using ApplicationLogic.Interfaces;
 using ApplicationLogic.Models;
@@ -91,6 +90,12 @@ namespace ApplicationView
         private void OrdersButton_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<OrdersForm>();
+            form.ShowDialog();
+        }
+
+        private void DeliveryButton_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<DeliveryForm>();
             form.ShowDialog();
         }
     }
