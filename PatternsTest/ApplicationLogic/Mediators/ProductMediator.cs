@@ -31,14 +31,14 @@ namespace ApplicationLogic.Mediators
             }
             if (manager == clientManager)
             {
-                Status.Invoke("Выполняется поиск по складам...");
+                Status?.Invoke("Выполняется поиск по складам...");
                 warehouseManager.SearchAsync(message as DeliveryDataBindingModel);
             }
             if (manager == warehouseManager)
             {
                 if (!string.IsNullOrWhiteSpace((message as DeliveryDataBindingModel).WarehouseName))
                 {
-                    Status.Invoke("Соединение со службой доставки...");
+                    Status?.Invoke("Соединение со службой доставки...");
                     deliveryManager.OrderAsync(message as DeliveryDataBindingModel);
                 }
                 else
