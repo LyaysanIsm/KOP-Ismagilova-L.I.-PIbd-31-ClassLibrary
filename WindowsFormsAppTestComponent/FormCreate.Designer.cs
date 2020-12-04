@@ -110,8 +110,7 @@
             this.textBoxPrice.Location = new System.Drawing.Point(84, 182);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(195, 20);
-            this.textBoxPrice.TabIndex = 8;
-            this.textBoxPrice.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+            this.textBoxPrice.TabIndex = 8;           
             // 
             // label4
             // 

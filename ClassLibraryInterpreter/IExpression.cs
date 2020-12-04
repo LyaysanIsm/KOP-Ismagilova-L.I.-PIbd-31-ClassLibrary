@@ -8,6 +8,6 @@ namespace ClassLibraryInterpreter
 {
     public interface IExpression
     {
-        int Interpret(int context);
+        int Interpret();
     }
 }

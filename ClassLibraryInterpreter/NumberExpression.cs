@@ -13,7 +13,7 @@ namespace ClassLibraryInterpreter
         {
             value = _value;
         }
-        public int Interpret(int context)
+        public int Interpret()
         {
             return value;
         }

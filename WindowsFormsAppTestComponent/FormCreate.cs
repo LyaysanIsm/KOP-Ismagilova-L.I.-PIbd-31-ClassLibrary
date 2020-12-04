@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
+using ClassLibraryInterpreter;
 
 namespace WindowsFormsAppTestComponent
 {
@@ -49,17 +50,12 @@ namespace WindowsFormsAppTestComponent
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void textBoxPrice_TextChanged(object sender, EventArgs e)
-        {
-            if (textBoxPrice.Text != "" && controlnullableInt.Value != 0)
-            {
-                userControlInterpreter.Count = Convert.ToInt32(controlnullableInt.Value);
-                userControlInterpreter.Price = Int32.Parse(textBoxPrice.Text);
-            }
-        }
+
         private void buttoncost_Click(object sender, EventArgs e)
         {
-            textBoxCost.Text = userControlInterpreter.Cost;
+            userControlInterpreter.setExpression(new MultiplyExpression(new NumberExpression(Int32.Parse(textBoxPrice.Text)),
+            new NumberExpression(Convert.ToInt32(controlnullableInt.Value))));
+            textBoxCost.Text = userControlInterpreter.Result.ToString();
         }
     }
 }

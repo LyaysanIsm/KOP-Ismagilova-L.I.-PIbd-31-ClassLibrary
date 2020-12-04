@@ -28,30 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCost = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // buttonCost
-            // 
-            this.buttonCost.Location = new System.Drawing.Point(3, 3);
-            this.buttonCost.Name = "buttonCost";
-            this.buttonCost.Size = new System.Drawing.Size(144, 23);
-            this.buttonCost.TabIndex = 1;
-            this.buttonCost.Text = "Рассчитать стоимость";
-            this.buttonCost.UseVisualStyleBackColor = true;
-            this.buttonCost.Click += new System.EventHandler(this.buttonCost_Click);
             // 
             // UserControlInterpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonCost);
             this.Name = "UserControlInterpreter";
             this.Size = new System.Drawing.Size(150, 30);
             this.ResumeLayout(false);
+
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonCost;
     }
 }

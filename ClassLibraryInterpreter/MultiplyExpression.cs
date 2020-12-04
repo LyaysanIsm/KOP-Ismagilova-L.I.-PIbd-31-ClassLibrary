@@ -17,9 +17,9 @@ namespace ClassLibraryInterpreter
             priceExpression = price;
         }
 
-        public int Interpret(int context)
+        public int Interpret()
         {
-            return countExpression.Interpret(context) * priceExpression.Interpret(context);
+            return countExpression.Interpret() * priceExpression.Interpret();
         }
     }
 }

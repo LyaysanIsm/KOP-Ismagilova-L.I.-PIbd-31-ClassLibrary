@@ -12,50 +12,23 @@ namespace ClassLibraryInterpreter
 {
     public partial class UserControlInterpreter : UserControl
     {
-        private int count;
-        private int price;
-        private string cost;
-
-        public int Count
-        {
-            set
-            {
-                count = value;
-            }
-        }
-
-        public int Price
-        {
-            set
-            {
-                price = value;
-            }
-        }
-
-        public string Cost
-        {
-            get
-            {
-                return cost;
-            }
-        }
+        private IExpression expression;
 
         public UserControlInterpreter()
         {
             InitializeComponent();
         }
-
-        private void buttonCost_Click(object sender, EventArgs e)
+        public int? Result
         {
-            if (count != 0 && price != 0)
+            get
             {
-                IExpression expre = null;
-                expre = new MultiplyExpression(new NumberExpression(count), new NumberExpression(price));
-                if (expre != null)
-                {
-                    cost = expre.Interpret(price).ToString();
-                }
+                return expression?.Interpret();
             }
         }
+
+        public void setExpression(IExpression expression)
+        {
+            this.expression = expression;
+        }       
     }
 }
