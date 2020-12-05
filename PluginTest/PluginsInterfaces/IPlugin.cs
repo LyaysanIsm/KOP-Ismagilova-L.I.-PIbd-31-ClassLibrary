@@ -1,9 +1,12 @@
-﻿namespace PluginsInterfaces
+﻿using System;
+
+namespace PluginsInterfaces
 {
     public interface IPlugin
     {
         string Name { get; }
         string Version { get; }
-        bool Activate<T>(T obj);
+        Action ActionDone { get; set; }
+        void Activate();
     }
 }

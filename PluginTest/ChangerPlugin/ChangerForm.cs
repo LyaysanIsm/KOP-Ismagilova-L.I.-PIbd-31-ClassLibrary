@@ -7,35 +7,25 @@ namespace ChangerPlugin
 {
     public partial class ChangerForm : Form
     {
-        private readonly IPlugin plugin;
-        private readonly DataBindingModel model;
+        private readonly ChangerPlugin plugin;
 
-        public ChangerForm(IPlugin plugin, DataBindingModel model)
+        public ChangerForm(ChangerPlugin plugin)
         {
             InitializeComponent();
             this.plugin = plugin;
-            this.model = model;
         }
 
         private void ChangerForm_Load(object sender, EventArgs e)
         {
-            Text = plugin.Name + plugin.Version;
-            InitData(model.Type);
+            Text = $"{plugin.Name} {plugin.Version}";
         }
 
-        private void InitData(Type type)
+        private void InitData(List<string> values)
         {
-            try
+            enumListView.Items.Clear();
+            foreach (string value in values)
             {
-                foreach (var value in Enum.GetValues(type))
-                {
-                    enumListView.Items.Add(value.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                enumListView.Items.Add(value);
             }
         }
 
@@ -43,13 +33,31 @@ namespace ChangerPlugin
         {
             if (enumListView.SelectedItems.Count > 0)
             {
-                model.ChosenElement = enumListView.SelectedItems[0].Text;
-                DialogResult = DialogResult.OK;
+                plugin.UpdateObject(enumListView.SelectedItems[0].Text);
                 Close();
             }
             else
             {
                 MessageBox.Show("Выберите значение", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EnumListView_DragEnter(object sender, DragEventArgs e)
+        {
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void EnumListView_DragDrop(object sender, DragEventArgs e)
+        {
+            plugin.TargetObject = e.Data.GetData(e.Data.GetFormats()[0]);
+            try
+            {
+                InitData(plugin.GetEnumValues());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -30,24 +30,33 @@ namespace ChangerPlugin
         private void InitializeComponent()
         {
             this.enumListView = new System.Windows.Forms.ListView();
+            this.enumValueName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.enumLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.enumValueName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // enumListView
             // 
+            this.enumListView.AllowDrop = true;
             this.enumListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.enumValueName});
+            this.enumListView.FullRowSelect = true;
             this.enumListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.enumListView.HideSelection = false;
             this.enumListView.Location = new System.Drawing.Point(11, 28);
             this.enumListView.MultiSelect = false;
             this.enumListView.Name = "enumListView";
-            this.enumListView.Size = new System.Drawing.Size(432, 262);
+            this.enumListView.Size = new System.Drawing.Size(255, 262);
             this.enumListView.TabIndex = 0;
             this.enumListView.UseCompatibleStateImageBehavior = false;
             this.enumListView.View = System.Windows.Forms.View.Details;
+            this.enumListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.EnumListView_DragDrop);
+            this.enumListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.EnumListView_DragEnter);
+            // 
+            // enumValueName
+            // 
+            this.enumValueName.Text = "Список значений";
+            this.enumValueName.Width = 250;
             // 
             // enumLabel
             // 
@@ -62,22 +71,17 @@ namespace ChangerPlugin
             // 
             this.saveButton.Location = new System.Drawing.Point(11, 296);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(432, 50);
+            this.saveButton.Size = new System.Drawing.Size(255, 50);
             this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // enumValueName
-            // 
-            this.enumValueName.Text = "Список значений";
-            this.enumValueName.Width = 250;
-            // 
             // ChangerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 358);
+            this.ClientSize = new System.Drawing.Size(276, 358);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.enumLabel);
             this.Controls.Add(this.enumListView);

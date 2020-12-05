@@ -1,5 +1,7 @@
 ﻿using PluginsInterfaces;
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace ChangerPlugin
@@ -19,53 +21,62 @@ namespace ChangerPlugin
             private set { version = value; }
         }
 
+        public Action ActionDone { get; set; }
+
+        protected internal Type EnumType { get; private set; }
+        protected internal object TargetObject { get; set; }
+
         public ChangerPlugin()
         {
             Name = "Плагин для изменения значения перечисления";
             Version = "1.0";
         }
 
-        public bool Activate<T>(T obj)
+        public void Activate()
         {
-            DataBindingModel model = new DataBindingModel
-            {
-                Type = GetEnumType(typeof(T))
-            };
-            var pluginForm = new ChangerForm(this, model);
-            if (pluginForm.ShowDialog() == DialogResult.OK)
-            {
-                UpdateObject(obj, model);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //TargetObjectType = typeof(T);
+            var pluginForm = new ChangerForm(this);
+            pluginForm.Show();
         }
 
-        private void UpdateObject<T>(T obj, DataBindingModel model)
+
+        protected internal void UpdateObject(string enumValue)
         {
-            var props = typeof(T).GetProperties();
+            var props = TargetObject.GetType().GetProperties();
             foreach (var prop in props)
             {
-                if (prop.PropertyType == model.Type)
+                if (prop.PropertyType == EnumType)
                 {
-                    prop.SetValue(obj, Enum.Parse(model.Type, model.ChosenElement));
+                    prop.SetValue(TargetObject, Enum.Parse(EnumType, enumValue));
+                    ActionDone?.Invoke();
+                    return;
                 }
             }
         }
 
-        private Type GetEnumType(Type type)
+        private void SetEnumType()
         {
-            var props = type.GetProperties();
+            PropertyInfo[] props = TargetObject.GetType().GetProperties();
             foreach (var prop in props)
             {
                 if (prop.PropertyType.IsEnum)
                 {
-                    return prop.PropertyType;
+                    EnumType = prop.PropertyType;
+                    return;
                 }
             }
-            return null;
+            throw new Exception("Тип переданного объекта не содержит enum-свойств");
+        }
+
+        protected internal List<string> GetEnumValues()
+        {
+            SetEnumType();
+            List<string> enumValues = new List<string>();
+            foreach (var enumValue in Enum.GetValues(EnumType))
+            {
+                enumValues.Add(enumValue.ToString());
+            }
+            return enumValues;
         }
     }
 }
