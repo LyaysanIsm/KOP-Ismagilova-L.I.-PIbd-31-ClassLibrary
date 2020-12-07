@@ -39,8 +39,6 @@ namespace PluginTestView
             this.dateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.productColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.countColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newSupplyButton = new System.Windows.Forms.Button();
-            this.invoiceButton = new System.Windows.Forms.Button();
             this.newProductButton = new System.Windows.Forms.Button();
             this.pluginsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -111,7 +109,7 @@ namespace PluginTestView
             this.suppliesListView.Location = new System.Drawing.Point(493, 28);
             this.suppliesListView.MultiSelect = false;
             this.suppliesListView.Name = "suppliesListView";
-            this.suppliesListView.Size = new System.Drawing.Size(476, 310);
+            this.suppliesListView.Size = new System.Drawing.Size(554, 202);
             this.suppliesListView.TabIndex = 3;
             this.suppliesListView.UseCompatibleStateImageBehavior = false;
             this.suppliesListView.View = System.Windows.Forms.View.Details;
@@ -119,35 +117,17 @@ namespace PluginTestView
             // dateColumn
             // 
             this.dateColumn.Text = "Дата";
-            this.dateColumn.Width = 150;
+            this.dateColumn.Width = 200;
             // 
             // productColumn
             // 
             this.productColumn.Text = "Продукт";
-            this.productColumn.Width = 200;
+            this.productColumn.Width = 230;
             // 
             // countColumn
             // 
             this.countColumn.Text = "Количество";
             this.countColumn.Width = 120;
-            // 
-            // newSupplyButton
-            // 
-            this.newSupplyButton.Location = new System.Drawing.Point(493, 344);
-            this.newSupplyButton.Name = "newSupplyButton";
-            this.newSupplyButton.Size = new System.Drawing.Size(280, 57);
-            this.newSupplyButton.TabIndex = 5;
-            this.newSupplyButton.Text = "Новая поставка";
-            this.newSupplyButton.UseVisualStyleBackColor = true;
-            // 
-            // invoiceButton
-            // 
-            this.invoiceButton.Location = new System.Drawing.Point(779, 344);
-            this.invoiceButton.Name = "invoiceButton";
-            this.invoiceButton.Size = new System.Drawing.Size(187, 57);
-            this.invoiceButton.TabIndex = 6;
-            this.invoiceButton.Text = "Накладная";
-            this.invoiceButton.UseVisualStyleBackColor = true;
             // 
             // newProductButton
             // 
@@ -167,11 +147,11 @@ namespace PluginTestView
             this.pluginsListView.FullRowSelect = true;
             this.pluginsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.pluginsListView.HideSelection = false;
-            this.pluginsListView.Location = new System.Drawing.Point(11, 424);
+            this.pluginsListView.Location = new System.Drawing.Point(493, 253);
             this.pluginsListView.Margin = new System.Windows.Forms.Padding(4);
             this.pluginsListView.MultiSelect = false;
             this.pluginsListView.Name = "pluginsListView";
-            this.pluginsListView.Size = new System.Drawing.Size(506, 143);
+            this.pluginsListView.Size = new System.Drawing.Size(554, 148);
             this.pluginsListView.TabIndex = 9;
             this.pluginsListView.UseCompatibleStateImageBehavior = false;
             this.pluginsListView.View = System.Windows.Forms.View.Details;
@@ -180,18 +160,18 @@ namespace PluginTestView
             // columnHeader1
             // 
             this.columnHeader1.Text = "Название";
-            this.columnHeader1.Width = 402;
+            this.columnHeader1.Width = 441;
             // 
             // versionColumn
             // 
             this.versionColumn.Text = "Версия";
             this.versionColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.versionColumn.Width = 100;
+            this.versionColumn.Width = 109;
             // 
             // pluginsLabel
             // 
             this.pluginsLabel.AutoSize = true;
-            this.pluginsLabel.Location = new System.Drawing.Point(12, 404);
+            this.pluginsLabel.Location = new System.Drawing.Point(493, 233);
             this.pluginsLabel.Name = "pluginsLabel";
             this.pluginsLabel.Size = new System.Drawing.Size(222, 16);
             this.pluginsLabel.TabIndex = 10;
@@ -201,12 +181,10 @@ namespace PluginTestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 576);
+            this.ClientSize = new System.Drawing.Size(1059, 413);
             this.Controls.Add(this.pluginsLabel);
             this.Controls.Add(this.pluginsListView);
             this.Controls.Add(this.newProductButton);
-            this.Controls.Add(this.invoiceButton);
-            this.Controls.Add(this.newSupplyButton);
             this.Controls.Add(this.suppliesListView);
             this.Controls.Add(this.supplyLabel);
             this.Controls.Add(this.productsLabel);
@@ -234,8 +212,6 @@ namespace PluginTestView
         private System.Windows.Forms.ColumnHeader dateColumn;
         private System.Windows.Forms.ColumnHeader productColumn;
         private System.Windows.Forms.ColumnHeader countColumn;
-        private System.Windows.Forms.Button newSupplyButton;
-        private System.Windows.Forms.Button invoiceButton;
         private System.Windows.Forms.Button newProductButton;
         private System.Windows.Forms.ListView pluginsListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;

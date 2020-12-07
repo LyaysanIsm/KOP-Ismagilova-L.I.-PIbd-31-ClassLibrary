@@ -2,6 +2,8 @@
 using ApplicationLogic.DataStorage;
 using ApplicationLogic.Interfaces;
 using ApplicationLogic.Models;
+using ApplicationLogic.Visitors;
+using OpenModelsLibrary.Interfaces;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -28,6 +30,8 @@ namespace PluginTestView
                 ProductLogic>(new HierarchicalLifetimeManager());
             unityContainer.RegisterType<ICrudLogic<Supply>,
                 SupplyLogic>(new HierarchicalLifetimeManager());
+            unityContainer.RegisterType<IVisitor, 
+                ModelProcessor>(new HierarchicalLifetimeManager());
             unityContainer.RegisterType<FileStorage>(new HierarchicalLifetimeManager());
             return unityContainer;
         }

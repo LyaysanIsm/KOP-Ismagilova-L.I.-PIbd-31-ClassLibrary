@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangerPlugin", "ChangerPlu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLogic", "ApplicationLogic\ApplicationLogic.csproj", "{18132D80-E132-49AF-8ECA-1B21DC954FEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationPlugin", "CreationPlugin\CreationPlugin.csproj", "{0E1F43AF-00C0-455C-B48A-EB73EAC3248A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenModelsLibrary", "OpenModelsLibrary\OpenModelsLibrary.csproj", "{560207A7-D237-458E-8594-8F4478CC70E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{18132D80-E132-49AF-8ECA-1B21DC954FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18132D80-E132-49AF-8ECA-1B21DC954FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18132D80-E132-49AF-8ECA-1B21DC954FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1F43AF-00C0-455C-B48A-EB73EAC3248A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1F43AF-00C0-455C-B48A-EB73EAC3248A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1F43AF-00C0-455C-B48A-EB73EAC3248A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1F43AF-00C0-455C-B48A-EB73EAC3248A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560207A7-D237-458E-8594-8F4478CC70E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560207A7-D237-458E-8594-8F4478CC70E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560207A7-D237-458E-8594-8F4478CC70E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560207A7-D237-458E-8594-8F4478CC70E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

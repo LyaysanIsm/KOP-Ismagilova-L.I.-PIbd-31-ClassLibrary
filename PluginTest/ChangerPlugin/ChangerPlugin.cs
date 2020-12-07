@@ -1,8 +1,8 @@
-﻿using PluginsInterfaces;
+﻿using OpenModelsLibrary.Enums;
+using OpenModelsLibrary.Models;
+using PluginsInterfaces;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Windows.Forms;
 
 namespace ChangerPlugin
 {
@@ -16,15 +16,14 @@ namespace ChangerPlugin
             private set { name = value; }
         }
 
-        public string Version { 
+        public string Version {
             get { return version; }
             private set { version = value; }
         }
 
-        public Action ActionDone { get; set; }
+        protected internal ProductOpenModel Product { get; set; } 
 
-        protected internal Type EnumType { get; private set; }
-        protected internal object TargetObject { get; set; }
+        public IPluginHost Host { get; set; }
 
         public ChangerPlugin()
         {
@@ -34,7 +33,6 @@ namespace ChangerPlugin
 
         public void Activate()
         {
-            //TargetObjectType = typeof(T);
             var pluginForm = new ChangerForm(this);
             pluginForm.Show();
         }
@@ -42,37 +40,26 @@ namespace ChangerPlugin
 
         protected internal void UpdateObject(string enumValue)
         {
-            var props = TargetObject.GetType().GetProperties();
-            foreach (var prop in props)
+            Product.Unit = (MeasureUnitOpenEnum)Enum.Parse(typeof(MeasureUnitOpenEnum), enumValue);
+            if (PluginIsRegistered())
             {
-                if (prop.PropertyType == EnumType)
-                {
-                    prop.SetValue(TargetObject, Enum.Parse(EnumType, enumValue));
-                    ActionDone?.Invoke();
-                    return;
-                }
+                Host.ProcessResult(Product);
+            }
+            else
+            {
+                throw new Exception("Плагин не зарегистрирован");
             }
         }
 
-        private void SetEnumType()
+        private bool PluginIsRegistered()
         {
-            PropertyInfo[] props = TargetObject.GetType().GetProperties();
-            foreach (var prop in props)
-            {
-                if (prop.PropertyType.IsEnum)
-                {
-                    EnumType = prop.PropertyType;
-                    return;
-                }
-            }
-            throw new Exception("Тип переданного объекта не содержит enum-свойств");
+            return Host != null;
         }
 
         protected internal List<string> GetEnumValues()
         {
-            SetEnumType();
             List<string> enumValues = new List<string>();
-            foreach (var enumValue in Enum.GetValues(EnumType))
+            foreach (var enumValue in Enum.GetValues(Product.Unit.GetType()))
             {
                 enumValues.Add(enumValue.ToString());
             }

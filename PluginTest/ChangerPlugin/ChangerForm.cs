@@ -1,4 +1,4 @@
-﻿using PluginsInterfaces;
+﻿using OpenModelsLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -33,8 +33,16 @@ namespace ChangerPlugin
         {
             if (enumListView.SelectedItems.Count > 0)
             {
-                plugin.UpdateObject(enumListView.SelectedItems[0].Text);
-                Close();
+                try
+                {
+                    plugin.UpdateObject(enumListView.SelectedItems[0].Text);
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -45,12 +53,15 @@ namespace ChangerPlugin
 
         private void EnumListView_DragEnter(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent(typeof(ProductOpenModel)))
+            {
                 e.Effect = DragDropEffects.Copy;
+            }
         }
 
         private void EnumListView_DragDrop(object sender, DragEventArgs e)
         {
-            plugin.TargetObject = e.Data.GetData(e.Data.GetFormats()[0]);
+            plugin.Product = (ProductOpenModel)e.Data.GetData(typeof(ProductOpenModel));
             try
             {
                 InitData(plugin.GetEnumValues());

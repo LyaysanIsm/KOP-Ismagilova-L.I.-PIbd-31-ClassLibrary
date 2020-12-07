@@ -108,6 +108,14 @@
       <Project>{1033e6fa-b837-4153-8aa9-a746cfdc4b4f}</Project>
       <Name>ChangerPlugin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CreationPlugin\CreationPlugin.csproj">
+      <Project>{0e1f43af-00c0-455c-b48a-eb73eac3248a}</Project>
+      <Name>CreationPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenModelsLibrary\OpenModelsLibrary.csproj">
+      <Project>{560207a7-d237-458e-8594-8f4478cc70e8}</Project>
+      <Name>OpenModelsLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PluginsInterfaces\PluginsInterfaces.csproj">
       <Project>{f0d7f6fb-2200-4585-a773-1f49d2a642e3}</Project>
       <Name>PluginsInterfaces</Name>

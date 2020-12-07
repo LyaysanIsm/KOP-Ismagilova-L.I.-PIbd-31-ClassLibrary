@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace PluginsInterfaces
+﻿namespace PluginsInterfaces
 {
     public interface IPlugin
     {
         string Name { get; }
         string Version { get; }
-        Action ActionDone { get; set; }
+        IPluginHost Host { get; set; }
         void Activate();
     }
 }
