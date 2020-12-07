@@ -41,7 +41,7 @@ namespace ApplicationLogic.DataAccessLogic
         public List<Supply> Read(Supply model)
         {
             return storage.Supplies.Where(supply => model == null
-            || supply.Date == model.Date).ToList();
+            || supply.Date.ToString() == model.Date.ToString()).ToList();
         }
 
         public void Update(Supply model)

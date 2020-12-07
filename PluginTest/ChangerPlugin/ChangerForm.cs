@@ -15,11 +15,6 @@ namespace ChangerPlugin
             this.plugin = plugin;
         }
 
-        private void ChangerForm_Load(object sender, EventArgs e)
-        {
-            Text = $"{plugin.Name} {plugin.Version}";
-        }
-
         private void InitData(List<string> values)
         {
             enumListView.Items.Clear();

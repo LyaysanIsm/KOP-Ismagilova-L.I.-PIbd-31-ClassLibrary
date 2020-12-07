@@ -86,10 +86,11 @@ namespace ChangerPlugin
             this.Controls.Add(this.enumLabel);
             this.Controls.Add(this.enumListView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.ChangerForm_Load);
+            this.Text = "Изменение значения";
             this.ResumeLayout(false);
             this.PerformLayout();
 

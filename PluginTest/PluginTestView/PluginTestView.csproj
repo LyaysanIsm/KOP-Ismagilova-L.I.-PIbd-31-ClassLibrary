@@ -120,6 +120,10 @@
       <Project>{f0d7f6fb-2200-4585-a773-1f49d2a642e3}</Project>
       <Name>PluginsInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReportPlugin\ReportPlugin.csproj">
+      <Project>{a36e02d4-cfe8-48a7-b537-2a873a4d3ba4}</Project>
+      <Name>ReportPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

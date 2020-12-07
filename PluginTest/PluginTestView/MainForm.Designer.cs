@@ -113,6 +113,7 @@ namespace PluginTestView
             this.suppliesListView.TabIndex = 3;
             this.suppliesListView.UseCompatibleStateImageBehavior = false;
             this.suppliesListView.View = System.Windows.Forms.View.Details;
+            this.suppliesListView.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.SuppliesListView_ItemDrag);
             // 
             // dateColumn
             // 
@@ -190,7 +191,9 @@ namespace PluginTestView
             this.Controls.Add(this.productsLabel);
             this.Controls.Add(this.productsListView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учет продуктов";

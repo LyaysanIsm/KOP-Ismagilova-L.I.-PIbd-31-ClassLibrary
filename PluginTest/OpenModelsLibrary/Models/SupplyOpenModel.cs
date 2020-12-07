@@ -1,4 +1,5 @@
 ﻿using OpenModelsLibrary.Interfaces;
+using System;
 
 namespace OpenModelsLibrary.Models
 {
@@ -6,6 +7,7 @@ namespace OpenModelsLibrary.Models
     {
         public ProductOpenModel Product { get; set; }
         public int Count { get; set; }
+        public DateTime Date { get; set; }
 
         public void Accept(IVisitor visitor)
         {

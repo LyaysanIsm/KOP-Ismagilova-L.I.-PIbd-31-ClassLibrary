@@ -18,5 +18,20 @@ namespace ApplicationLogic.OpenLibraryInteraction
                 product.Unit.ToString())
             };
         }
+
+        public static SupplyOpenModel GetOpenSupply(Supply supply)
+        {
+            return new SupplyOpenModel
+            {
+                Product = new ProductOpenModel
+                {
+                    Name = supply.Product.Name,
+                    Price = supply.Product.Price,
+                    Unit = (MeasureUnitOpenEnum)Enum.Parse(typeof(MeasureUnitOpenEnum),
+                    supply.Product.Unit.ToString())
+                },
+                Date = supply.Date
+            };
+        }
     }
 }

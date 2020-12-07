@@ -141,5 +141,14 @@ namespace PluginTestView
                 plugins[pluginsListView.SelectedItems[0].Index].Activate();
             }
         }
+
+        private void SuppliesListView_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            SupplyOpenModel toDrag = ModelsConvertLogic.GetOpenSupply(supplyLogic.Read(new Supply
+            {
+                Date = Convert.ToDateTime(suppliesListView.SelectedItems[0].SubItems[0].Text)
+            }).First());
+            suppliesListView.DoDragDrop(toDrag, DragDropEffects.Copy | DragDropEffects.Move);
+        }
     }
 }
