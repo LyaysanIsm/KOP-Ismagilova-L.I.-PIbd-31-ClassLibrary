@@ -1,14 +1,13 @@
-﻿using BusinessLogic.Interfaces;
+﻿using BusinessLogic.BindingModel;
+using BusinessLogic.Interfaces;
 using BusinessLogic.VIewModel;
-using DataBaseImplement.Models;
+using ClassLibraryPlugins;
+using ClassLibraryPlugins.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 using Unity;
 
@@ -19,6 +18,7 @@ namespace WindowsFormsAppTestComponent
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
+        private readonly PluginManager manager;
         private readonly IProductLogic logic;
 
         public FormMain(IProductLogic logic)
@@ -26,10 +26,18 @@ namespace WindowsFormsAppTestComponent
             InitializeComponent();
             this.logic = logic;
             controlTree.Order("Name", "Category", "Count", "KindOfProduct");
+
+            manager = new PluginManager();
+            if (manager.Headers != null && manager.Headers.Count() != 0)
+            {
+                comboBoxPlugins.Items.AddRange(manager.Headers.ToArray());
+                comboBoxPlugins.Text = comboBoxPlugins.Items[0].ToString();
+            }
         }
 
         private void LoadData()
         {
+            controlTree.ClearNodes();
             List<ProductViewModel> list = new List<ProductViewModel>();
             var products = logic.Read(null);
             if (products != null)
@@ -144,7 +152,51 @@ namespace WindowsFormsAppTestComponent
         {
             string[] elems = controlTree.FullPath;
             Product obj = componentPrototype1.CloneProduct(elems);
-            controlTree.addNode(obj.Clone());
+            // controlTree.addNode(obj.Clone());
+        }
+
+        private void buttonPlugin_Click(object sender, EventArgs e)
+        {
+            if (comboBoxPlugins.Text == "Изменение категории продуктов")
+            {
+                var product = logic.Read(null)[controlTree.Index];
+                string cng = comboBoxPlugins.Text;
+                var form = new FormChangeCategory(cng, product, manager, logic);
+                form.ShowDialog();
+                LoadData();
+            }
+            else if (comboBoxPlugins.Text == "Пополнение склада")
+            {
+                var product = logic.Read(null)[controlTree.Index];
+                string cng = comboBoxPlugins.Text;
+                var form = new FormAdd(cng, product, manager, logic);
+                form.ShowDialog();
+                LoadData();
+            }
+            else if (comboBoxPlugins.Text == "Формирование накладной")
+            {
+                if (manager == null)
+                {
+                    return;
+                }
+                if (string.IsNullOrEmpty(controlTree.SelectedNode))
+                {
+                    MessageBox.Show("Выберите продукт", "Ошибка");
+                    return;
+                }
+                var product = logic.Read(null)[controlTree.Index];
+                string cng = comboBoxPlugins.Text;
+
+                Product obj = new Product
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    KindOfProduct = product.KindOfProduct,
+                    Category = product.Category,
+                    Count = product.Count
+                };
+                manager.WaybillsDict[cng](obj);
+            }
         }
     }
 }

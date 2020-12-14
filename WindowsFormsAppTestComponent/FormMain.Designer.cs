@@ -38,7 +38,10 @@
             this.buttonChart = new System.Windows.Forms.Button();
             this.buttonReport = new System.Windows.Forms.Button();
             this.buttonClone = new System.Windows.Forms.Button();
+            this.comboBoxPlugins = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.componentPrototype1 = new ClassLibraryPrototype.ComponentPrototype(this.components);
+            this.buttonPlugin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // controlTree
@@ -46,6 +49,7 @@
             this.controlTree.Location = new System.Drawing.Point(12, 12);
             this.controlTree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.controlTree.Name = "controlTree";
+            this.controlTree.SelectedNode = null;
             this.controlTree.Size = new System.Drawing.Size(511, 237);
             this.controlTree.TabIndex = 0;
             // 
@@ -99,11 +103,41 @@
             this.buttonClone.UseVisualStyleBackColor = true;
             this.buttonClone.Click += new System.EventHandler(this.buttonClone_Click);
             // 
+            // comboBoxPlugins
+            // 
+            this.comboBoxPlugins.FormattingEnabled = true;
+            this.comboBoxPlugins.Location = new System.Drawing.Point(528, 39);
+            this.comboBoxPlugins.Name = "comboBoxPlugins";
+            this.comboBoxPlugins.Size = new System.Drawing.Size(319, 21);
+            this.comboBoxPlugins.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(525, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Плагины:";
+            // 
+            // buttonPlugin
+            // 
+            this.buttonPlugin.Location = new System.Drawing.Point(614, 84);
+            this.buttonPlugin.Name = "buttonPlugin";
+            this.buttonPlugin.Size = new System.Drawing.Size(133, 23);
+            this.buttonPlugin.TabIndex = 16;
+            this.buttonPlugin.Text = "Плагин";
+            this.buttonPlugin.UseVisualStyleBackColor = true;
+            this.buttonPlugin.Click += new System.EventHandler(this.buttonPlugin_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 330);
+            this.ClientSize = new System.Drawing.Size(975, 330);
+            this.Controls.Add(this.buttonPlugin);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxPlugins);
             this.Controls.Add(this.buttonClone);
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.buttonChart);
@@ -114,6 +148,7 @@
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -128,5 +163,8 @@
         private System.Windows.Forms.Button buttonReport;
         private System.Windows.Forms.Button buttonClone;
         private ClassLibraryPrototype.ComponentPrototype componentPrototype1;
+        private System.Windows.Forms.ComboBox comboBoxPlugins;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonPlugin;
     }
 }

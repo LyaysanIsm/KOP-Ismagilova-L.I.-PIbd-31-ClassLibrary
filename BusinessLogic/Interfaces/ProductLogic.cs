@@ -1,11 +1,10 @@
 ﻿using BusinessLogic.BindingModel;
 using BusinessLogic.VIewModel;
+using ClassLibraryPlugins.Models;
 using DataBaseImplement;
-using DataBaseImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BusinessLogic.Interfaces
 {

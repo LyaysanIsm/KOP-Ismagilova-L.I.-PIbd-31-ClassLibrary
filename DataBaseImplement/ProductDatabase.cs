@@ -1,4 +1,4 @@
-﻿using DataBaseImplement.Models;
+﻿using ClassLibraryPlugins.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

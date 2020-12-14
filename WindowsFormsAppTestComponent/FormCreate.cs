@@ -1,6 +1,5 @@
 ﻿using BusinessLogic.BindingModel;
 using BusinessLogic.Interfaces;
-using DataBaseImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 using ClassLibraryInterpreter;
+using ClassLibraryPlugins.Models;
 
 namespace WindowsFormsAppTestComponent
 {

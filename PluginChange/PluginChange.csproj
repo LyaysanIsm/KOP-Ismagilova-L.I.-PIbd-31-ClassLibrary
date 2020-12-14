@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{78F5FFA7-5F35-4132-96DD-60DFEC08A72C}</ProjectGuid>
+    <ProjectGuid>{556FA455-6279-4FA2-93A6-418B81938C47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibraryPrototype</RootNamespace>
-    <AssemblyName>ClassLibraryPrototype</AssemblyName>
+    <RootNamespace>PluginChange</RootNamespace>
+    <AssemblyName>PluginChange</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,12 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentPrototype.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ComponentPrototype.Designer.cs">
-      <DependentUpon>ComponentPrototype.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ChangeCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,13 +50,9 @@
       <Project>{ac6c6435-fb6c-4d5f-a39a-3578f4900af3}</Project>
       <Name>ClassLibraryPlugins</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataBaseImplement\DataBaseImplement.csproj">
-      <Project>{7bc97802-1dd7-4b63-aec6-c25eefa14791}</Project>
-      <Name>DataBaseImplement</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
