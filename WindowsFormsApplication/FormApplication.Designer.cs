@@ -47,12 +47,11 @@
             // controlTextBox
             // 
             this.controlTextBox.ErrorColor = System.Drawing.Color.Empty;
-            this.controlTextBox.Hint = "08.02.2015";
             this.controlTextBox.Location = new System.Drawing.Point(189, 40);
             this.controlTextBox.Name = "controlTextBox";
-            this.controlTextBox.Regexp = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]";
-            this.controlTextBox.Size = new System.Drawing.Size(205, 26);
+            this.controlTextBox.Size = new System.Drawing.Size(205, 68);
             this.controlTextBox.TabIndex = 3;
+            this.controlTextBox.UserInput = "08.02.2015";
             // 
             // controlListBox2
             // 

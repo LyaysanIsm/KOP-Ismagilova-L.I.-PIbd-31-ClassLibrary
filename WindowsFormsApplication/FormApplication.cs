@@ -19,10 +19,7 @@ namespace WindowsFormsApplication
 
             controlComboBox.LoadCombo(TestEnum.Значение1);
             controlComboBox.LoadCombo(TestEnum.Значение2);
-
             controlTextBox.ErrorColor = Color.LightBlue;
-            controlTextBox.Regexp = @"\d{2}.";
-            controlTextBox.Hint = @"10.";
 
             string temp = "(Id) (Name) (Age)";
             controlListBox2.setTemplate(temp);

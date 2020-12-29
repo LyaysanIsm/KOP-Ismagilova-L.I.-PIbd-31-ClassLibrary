@@ -13,99 +13,56 @@ namespace ClassLibraryData
 {
     public partial class ControlTextFieldData : UserControl
     {
-        /// <summary>
-        /// Подсказка для пользователя
-        /// </summary>
-        private string hint = "08.02.2015";
+        public string reg = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]";
 
-        /// <summary>
-        /// Пользователь вводит в строке
-        /// </summary>
         private string userInput = string.Empty;
+        private string temp = "08.02.2015";
 
-        /// <summary>
-        /// Регулярное выражение в вводе
-        /// </summary>
-        private string regexp = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9][0-9]";
-
-        /// <summary>
-        /// Пользователь вводит в строке
-        /// </summary>
-        [Category("Спецификация"), Description("Пользователь вводит в строке")]
-        public string UserInput
+        public void setTemp(string str)
         {
-            get { return checkInput() ? userInput : string.Empty; }
+            textBox.Text = str;
         }
 
-        /// <summary>
-        /// Цвет подсветки элемента при некорректном вводе
-        /// </summary>
-        [Category("Спецификация"), Description("Цвет подсветки элемента при некорректном вводе")]
-        public Color ErrorColor
+        public void leaveTemp()
         {
-            get; set;
+            temp = "";
+            textBox.Text = "";
         }
 
-        /// <summary>
-        /// Цвет подсветки элемента при некорректном вводе
-        /// </summary>
-        [Category("Спецификация"), Description("Установка шаблона для поля ввода")]
-        public string Regexp
-        {
-            get { return regexp; }
-            set { regexp = value.Length == 0 ? regexp : value; }
-        }
-
-        /// <summary>
-        /// Подсказка для пользователя
-        /// </summary>
-        [Category("Спецификация"), Description("Установка шаблона для поля ввода")]
-        public string Hint
-        {
-            get { return hint; }
-            set { hint = value.Length == 0 ? hint : value; }
-        }
 
         public ControlTextFieldData()
         {
             InitializeComponent();
-            showHint();
+            textBox.Text = temp;
         }
 
-        private void textBox_Enter(object sender, EventArgs e)
+        [Category("Спецификация"), Description("Значение корректно")]
+        public string UserInput
         {
-            showUserInput();
-        }
-
-        private void textBox_Leave(object sender, EventArgs e)
-        {
-            if (userAlreadyPrintSomething())
+            get
             {
-                showUserInput();
+                return checkReg() ? userInput : string.Empty;
             }
-            else
+            set
             {
-                showHint();
+                userInput = value;
+                textBox.Text = userInput;
             }
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        [Category("Спецификация"), Description("Значение некорректно")]
+        public Color ErrorColor
         {
-            userInput = textBox.Text != hint ? textBox.Text : string.Empty;
-            var isInputCorrect = checkInput();
-            if (isInputCorrect)
-            {
-                textBox.BackColor = Color.White;
-            }
-            else
-            {
-                textBox.BackColor = ErrorColor;
-            }
+            get; set;
+        }
+        public bool checkReg()
+        {
+            return Regex.IsMatch(textBox.Text, reg);
         }
 
-        private bool checkInput()
+        private bool checkUserInpit()
         {
-            return Regex.IsMatch(textBox.Text, regexp);
+            return userInput.Length > 0;
         }
 
         private void showUserInput()
@@ -114,15 +71,52 @@ namespace ClassLibraryData
             textBox.ForeColor = Color.Black;
         }
 
-        private void showHint()
+        private void textBox_Leave(object sender, EventArgs e)
         {
-            textBox.Text = hint;
-            textBox.ForeColor = Color.Gray;
+            if (checkUserInpit())
+            {
+                showUserInput();
+            }
         }
 
-        private bool userAlreadyPrintSomething()
+        private string Check()
         {
-            return userInput.Length > 0;
+            if (!string.IsNullOrEmpty(textBox.Text))
+                return userInput = textBox.Text;
+            else
+                return string.Empty;
+        }
+
+        private void inputText(object sender, EventArgs e)
+        {
+            showUserInput();
+        }
+        private void textBox_Print(object sender, EventArgs e)
+        {
+            Check();
+            if (checkReg())
+            {
+                textBox.BackColor = Color.White;
+            }
+            else
+            {
+                textBox.BackColor = ErrorColor;
+            }
+        }
+        private void Form_Load(object sender, System.EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.ToolTipTitle = "Формат ввода:";
+            toolTip.Active = true;
+            toolTip.UseAnimation = true;
+            toolTip.ShowAlways = true;
+            toolTip.SetToolTip(this.textBox, "dd.mm.yyyy");
+        }
+
+        private void textBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            temp = "";
+            textBox.Text = "";
         }
     }
 }

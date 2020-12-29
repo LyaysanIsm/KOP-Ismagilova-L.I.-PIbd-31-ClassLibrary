@@ -22,7 +22,7 @@
 
         #region Код, автоматически созданный конструктором компонентов
 
-        /// <summary>
+        /// <summary> 
         /// Требуемый метод для поддержки конструктора — не изменяйте 
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
@@ -33,23 +33,25 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(3, 3);
+            this.textBox.Location = new System.Drawing.Point(46, 20);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(198, 20);
+            this.textBox.Size = new System.Drawing.Size(137, 20);
             this.textBox.TabIndex = 0;
-            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
-            this.textBox.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_Print);
+            this.textBox.Enter += new System.EventHandler(this.inputText);
             this.textBox.Leave += new System.EventHandler(this.textBox_Leave);
             // 
-            // ControlTextFieldData
+            // ControlTextBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox);
-            this.Name = "ControlTextFieldData";
-            this.Size = new System.Drawing.Size(204, 27);
+            this.Name = "ControlTextBox";
+            this.Size = new System.Drawing.Size(230, 119);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
