@@ -15,7 +15,7 @@ namespace ClassLibraryExcelReport
 {
     public partial class ExcelComponent : Component
     {
-        public void CreateExcelReport<T>(string fileName, bool isHorizontalHead, T[] data, int[] toMerge, string[] headers)
+        public void CreateExcelReport<T>(string fileName, bool isHorizontalHead, T[] data, int[] toMerge)
         {
             using (var spreadsheetDocument = SpreadsheetDocument.Create(fileName, SpreadsheetDocumentType.Workbook))
             {
